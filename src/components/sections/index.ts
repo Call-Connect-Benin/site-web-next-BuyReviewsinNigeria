@@ -1,0 +1,16 @@
+export { Hero } from "./hero";
+export { TrustBar } from "./trust-bar";
+export { HowItWorks } from "./how-it-works";
+export { ServicesSection } from "./services-section";
+export { IndustriesSection } from "./industries-section";
+export { LocationsSection } from "./locations-section";
+export { TestimonialsSection } from "./testimonials-section";
+export { PricingPreview } from "./pricing-preview";
+export { PlatformsSection } from "./platforms-section";
+export { FAQSection } from "./faq-section";
+export { CTAFinal } from "./cta-final";
+export { InternalLinks } from "./internal-links";
+export { RelatedIndustries } from "./related-industries";
+export { NearbyLocations } from "./nearby-locations";
+export { ServiceCTA } from "./service-cta";
+export { FaqAccordion } from "./faq-accordion";

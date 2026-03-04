@@ -1,0 +1,148 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { Breadcrumb } from "@/components/layout/breadcrumb";
+import { buildBreadcrumbs } from "@/lib/internal-links";
+import {
+  Shield,
+  CheckCircle,
+  Users,
+  MapPin,
+  Star,
+  Clock,
+  Award,
+  Zap,
+} from "@/components/icons";
+
+export const metadata: Metadata = {
+  title: "Why Choose Us",
+  description:
+    "8 reasons Nigerian businesses choose BuyReviewsInNigeria for authentic Google Reviews. Certified Local Guides, 30-day guarantee, 15 cities.",
+  alternates: { canonical: "https://buyreviewsinnigeria.com/why-choose-us/" },
+};
+
+const reasons = [
+  {
+    icon: Users,
+    title: "Certified Google Local Guides (Level 4+)",
+    description:
+      "Every reviewer in our network is a certified Google Local Guide at Level 4 or above. These are established Google users with years of review history, not newly created accounts.",
+  },
+  {
+    icon: Star,
+    title: "Genuine, Personalized Reviews",
+    description:
+      "Each review is written by a real person who has genuinely experienced your business. No templates, no copy-paste. Every review is unique and mentions specific details about your service.",
+  },
+  {
+    icon: Shield,
+    title: "30-Day Retention Guarantee",
+    description:
+      "If any review is removed by Google within 30 days of posting, we replace it at no extra cost. Our retention rate exceeds 95% because our reviews are authentic.",
+  },
+  {
+    icon: MapPin,
+    title: "15 Nigerian Cities, 93+ Neighborhoods",
+    description:
+      "From Victoria Island in Lagos to Maitama in Abuja, our Local Guides are based in the cities and neighborhoods they review. True local presence means authentic local reviews.",
+  },
+  {
+    icon: Clock,
+    title: "Natural Delivery Pacing",
+    description:
+      "Reviews are spread over weeks (not dumped overnight) to mimic natural growth patterns. This protects your Google Business Profile from algorithmic flags and suspicion.",
+  },
+  {
+    icon: Zap,
+    title: "Dedicated Account Manager",
+    description:
+      "Every client gets a dedicated account manager who coordinates your review campaign, provides updates, and ensures quality at every step.",
+  },
+  {
+    icon: Award,
+    title: "25+ Industries Served",
+    description:
+      "We have tailored review strategies for restaurants, hotels, hospitals, car dealerships, lawyers, dentists, and 20+ more industries. Our guides know what matters in your industry.",
+  },
+  {
+    icon: CheckCircle,
+    title: "Transparent Pricing, No Hidden Fees",
+    description:
+      "What you see is what you pay. No setup fees, no monthly commitments (unless you choose ongoing services), no surprises. Simple one-time packages starting at ₦25,000.",
+  },
+];
+
+export default function WhyChooseUsPage() {
+  const breadcrumbs = buildBreadcrumbs([
+    { label: "Why Choose Us", href: "/why-choose-us/" },
+  ]);
+
+  return (
+    <main className="bg-bg">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <Breadcrumb items={breadcrumbs} />
+      </div>
+
+      {/* Hero */}
+      <section className="bg-white py-20">
+        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
+          <h1 className="font-heading text-4xl font-bold text-text-primary sm:text-5xl">
+            Why Choose BuyReviewsInNigeria
+          </h1>
+          <p className="mt-6 text-lg text-text-secondary">
+            We are not just another review service. Here are 8 reasons why
+            hundreds of Nigerian businesses trust us with their online
+            reputation.
+          </p>
+        </div>
+      </section>
+
+      {/* Reasons grid */}
+      <section className="py-20">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6">
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
+            {reasons.map((reason, index) => (
+              <div
+                key={reason.title}
+                className="rounded-xl border border-border bg-white p-8"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-google-blue/10">
+                    <reason.icon className="h-6 w-6 text-google-blue" />
+                  </div>
+                  <div>
+                    <span className="text-xs font-semibold text-google-blue">
+                      #{index + 1}
+                    </span>
+                    <h2 className="mt-1 font-heading text-lg font-bold text-text-primary">
+                      {reason.title}
+                    </h2>
+                    <p className="mt-3 text-sm text-text-secondary">
+                      {reason.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-google-blue py-16">
+        <div className="mx-auto max-w-2xl px-4 text-center">
+          <h2 className="font-heading text-3xl font-bold text-white">
+            Ready to Get Started?
+          </h2>
+          <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+            <Link href="/get-started/" className="rounded-lg bg-white px-8 py-3 font-semibold text-google-blue hover:bg-white/90">
+              Get Started Today
+            </Link>
+            <Link href="/how-it-works/" className="rounded-lg border-2 border-white/30 px-8 py-3 font-semibold text-white hover:border-white">
+              See How It Works
+            </Link>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
