@@ -5,10 +5,11 @@ import { motion } from "framer-motion";
 import { servicesData } from "@/data/homepage";
 import { iconMap } from "@/components/icons";
 import { ArrowRight } from "@/components/icons";
+import { getColorForIndex } from "@/lib/colors";
 
 export function ServicesSection() {
   return (
-    <section className="bg-bg py-20 sm:py-28">
+    <section className="bg-bg py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mx-auto max-w-2xl text-center">
@@ -21,9 +22,10 @@ export function ServicesSection() {
         </div>
 
         {/* Service cards */}
-        <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {servicesData.services.map((service, index) => {
             const Icon = iconMap[service.icon];
+            const color = getColorForIndex(index);
             return (
               <motion.div
                 key={service.href}
@@ -34,10 +36,10 @@ export function ServicesSection() {
               >
                 <Link
                   href={service.href}
-                  className="group block h-full rounded-xl bg-white p-8 shadow-sm transition-all hover:shadow-hover"
+                  className={`group block h-full rounded-xl border-t-4 ${color.borderTop} bg-white p-8 shadow-sm hover:-translate-y-1 hover:shadow-lg transition-all duration-300`}
                 >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-google-blue/10">
-                    <Icon className="h-6 w-6 text-google-blue" />
+                  <div className={`flex h-12 w-12 items-center justify-center rounded-lg ${color.bgGradient}`}>
+                    <Icon className={`h-6 w-6 ${color.text}`} />
                   </div>
                   <h3 className="mt-6 font-heading text-xl font-semibold text-text-primary group-hover:text-google-blue">
                     {service.title}
@@ -58,7 +60,7 @@ export function ServicesSection() {
                   </ul>
                   <div className="mt-6 flex items-center gap-1 text-sm font-medium text-google-blue">
                     Learn More
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" />
                   </div>
                 </Link>
               </motion.div>

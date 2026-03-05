@@ -12,8 +12,9 @@ export function FAQSection() {
   const questions = getHomepageFaq();
 
   return (
-    <section className="bg-white py-20 sm:py-28">
-      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+    <section className="relative bg-white py-12 sm:py-16">
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-google-blue/[0.01] to-transparent" />
+      <div className="relative mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center">
           <h2 className="font-heading text-3xl font-bold text-text-primary sm:text-4xl">
@@ -25,9 +26,9 @@ export function FAQSection() {
         </div>
 
         {/* Accordion */}
-        <div className="mt-12 divide-y divide-border rounded-xl border border-border">
+        <div className="mt-8 divide-y divide-border">
           {questions.map((item, index) => (
-            <div key={item.question}>
+            <div key={item.question} className={`transition-all ${openIndex === index ? 'border-l-4 border-l-google-blue bg-google-blue/[0.02]' : 'border-l-4 border-l-transparent'}`}>
               <button
                 type="button"
                 className="flex w-full items-center justify-between px-6 py-5 text-left transition-colors hover:bg-bg"
@@ -40,8 +41,8 @@ export function FAQSection() {
                   {item.question}
                 </span>
                 <ChevronDown
-                  className={`h-5 w-5 shrink-0 text-text-secondary transition-transform ${
-                    openIndex === index ? "rotate-180" : ""
+                  className={`h-5 w-5 shrink-0 text-text-secondary transition-transform duration-300 ${
+                    openIndex === index ? "rotate-180 text-google-blue" : ""
                   }`}
                 />
               </button>

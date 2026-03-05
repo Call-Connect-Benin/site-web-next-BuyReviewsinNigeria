@@ -8,7 +8,7 @@ import { getIndustryBySlug } from "@/data/industries";
 import { pricingPlans } from "@/data/pricing";
 import { locationBreadcrumbs, getCityPageLinks } from "@/lib/internal-links";
 import { Breadcrumb } from "@/components/layout/breadcrumb";
-import { InternalLinks, ServiceCTA } from "@/components/sections";
+import { InternalLinks } from "@/components/sections";
 import { iconMap } from "@/components/icons";
 import {
   MapPin,
@@ -17,6 +17,7 @@ import {
   ArrowRight,
   CheckCircle,
 } from "@/components/icons";
+import { getColorForIndex } from "@/lib/colors";
 
 interface Props {
   params: Promise<{ city: string }>;
@@ -92,18 +93,18 @@ export default async function CityPage({ params }: Props) {
           </p>
 
           {/* Quick Stats */}
-          <div className="mt-8 flex flex-wrap gap-6">
-            <div className="flex items-center gap-2 text-sm text-text-secondary">
-              <MapPin className="h-5 w-5 text-google-blue" />
-              <span>{city.state}</span>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <div className={`flex items-center gap-2 rounded-full ${getColorForIndex(0).badgeBg} px-3 py-1.5 text-sm`}>
+              <MapPin className="h-4 w-4 text-google-blue" />
+              <span className="font-medium text-text-primary">{city.state}</span>
             </div>
-            <div className="flex items-center gap-2 text-sm text-text-secondary">
-              <Users className="h-5 w-5 text-google-green" />
-              <span>{city.localGuidesCount} Local Guides</span>
+            <div className={`flex items-center gap-2 rounded-full ${getColorForIndex(3).badgeBg} px-3 py-1.5 text-sm`}>
+              <Users className="h-4 w-4 text-google-green" />
+              <span className="font-medium text-text-primary">{city.localGuidesCount} Local Guides</span>
             </div>
-            <div className="flex items-center gap-2 text-sm text-text-secondary">
-              <Building className="h-5 w-5 text-google-yellow" />
-              <span>{city.neighborhoods.length} Neighborhoods</span>
+            <div className={`flex items-center gap-2 rounded-full ${getColorForIndex(2).badgeBg} px-3 py-1.5 text-sm`}>
+              <Building className="h-4 w-4 text-google-yellow" />
+              <span className="font-medium text-text-primary">{city.neighborhoods.length} Neighborhoods</span>
             </div>
           </div>
 
@@ -168,8 +169,10 @@ export default async function CityPage({ params }: Props) {
           </p>
 
           <div className="mt-8 grid gap-6 sm:grid-cols-3">
-            <div className="rounded-lg border border-border bg-bg p-6">
-              <Users className="h-8 w-8 text-google-blue" />
+            <div className={`rounded-lg border border-border border-t-4 ${getColorForIndex(0).borderTop} bg-bg p-6`}>
+              <div className={`flex h-12 w-12 items-center justify-center rounded-lg ${getColorForIndex(0).bgGradient}`}>
+                <Users className="h-6 w-6 text-google-blue" />
+              </div>
               <p className="mt-3 text-2xl font-bold text-text-primary">
                 {city.localGuidesCount}+
               </p>
@@ -177,8 +180,10 @@ export default async function CityPage({ params }: Props) {
                 Verified Local Guides in {city.name}
               </p>
             </div>
-            <div className="rounded-lg border border-border bg-bg p-6">
-              <MapPin className="h-8 w-8 text-google-green" />
+            <div className={`rounded-lg border border-border border-t-4 ${getColorForIndex(3).borderTop} bg-bg p-6`}>
+              <div className={`flex h-12 w-12 items-center justify-center rounded-lg ${getColorForIndex(3).bgGradient}`}>
+                <MapPin className="h-6 w-6 text-google-green" />
+              </div>
               <p className="mt-3 text-2xl font-bold text-text-primary">
                 {city.neighborhoods.length}
               </p>
@@ -186,8 +191,10 @@ export default async function CityPage({ params }: Props) {
                 Neighborhoods with active coverage
               </p>
             </div>
-            <div className="rounded-lg border border-border bg-bg p-6">
-              <CheckCircle className="h-8 w-8 text-google-yellow" />
+            <div className={`rounded-lg border border-border border-t-4 ${getColorForIndex(2).borderTop} bg-bg p-6`}>
+              <div className={`flex h-12 w-12 items-center justify-center rounded-lg ${getColorForIndex(2).bgGradient}`}>
+                <CheckCircle className="h-6 w-6 text-google-yellow" />
+              </div>
               <p className="mt-3 text-2xl font-bold text-text-primary">
                 Level 4+
               </p>
@@ -212,11 +219,13 @@ export default async function CityPage({ params }: Props) {
           </p>
 
           <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {neighborhoodData.map((neighborhood) => (
+            {neighborhoodData.map((neighborhood, index) => {
+              const color = getColorForIndex(index);
+              return (
               <Link
                 key={neighborhood.slug}
                 href={`/locations/${city.slug}/${neighborhood.slug}/`}
-                className="group rounded-lg border border-border bg-white p-5 transition-all hover:border-google-blue hover:shadow-sm"
+                className={`group rounded-lg border border-border border-t-4 ${color.borderTop} bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg`}
               >
                 <h3 className="font-heading text-base font-semibold text-text-primary group-hover:text-google-blue">
                   {neighborhood.name}
@@ -226,23 +235,24 @@ export default async function CityPage({ params }: Props) {
                 </p>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {neighborhood.isBusinessDistrict && (
-                    <span className="rounded-full bg-google-blue/10 px-2.5 py-0.5 text-xs font-medium text-google-blue">
+                    <span className={`rounded-full ${getColorForIndex(0).badgeBg} px-2.5 py-0.5 text-xs font-medium text-google-blue`}>
                       Business District
                     </span>
                   )}
                   {neighborhood.isUpscale && (
-                    <span className="rounded-full bg-google-green/10 px-2.5 py-0.5 text-xs font-medium text-google-green">
+                    <span className={`rounded-full ${getColorForIndex(3).badgeBg} px-2.5 py-0.5 text-xs font-medium text-google-green`}>
                       Upscale Area
                     </span>
                   )}
                   {neighborhood.isResidential && (
-                    <span className="rounded-full bg-google-yellow/10 px-2.5 py-0.5 text-xs font-medium text-google-yellow">
+                    <span className={`rounded-full ${getColorForIndex(2).badgeBg} px-2.5 py-0.5 text-xs font-medium text-google-yellow`}>
                       Residential
                     </span>
                   )}
                 </div>
               </Link>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -306,15 +316,18 @@ export default async function CityPage({ params }: Props) {
           </p>
 
           <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((service) => {
+            {services.map((service, index) => {
               const Icon = iconMap[service.icon];
+              const color = getColorForIndex(index);
               return (
                 <Link
                   key={service.slug}
                   href={`/services/${service.slug}/`}
-                  className="group rounded-lg border border-border bg-white p-6 shadow-sm transition-all hover:border-google-blue hover:shadow-md"
+                  className={`group rounded-lg border border-border border-t-4 ${color.borderTop} bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg`}
                 >
-                  <Icon className="h-8 w-8 text-google-blue" />
+                  <div className={`flex h-10 w-10 items-center justify-center rounded-lg ${color.bgGradient}`}>
+                    <Icon className={`h-5 w-5 ${color.text}`} />
+                  </div>
                   <h3 className="mt-4 font-heading text-base font-semibold text-text-primary group-hover:text-google-blue">
                     {service.name}
                   </h3>
@@ -409,14 +422,32 @@ export default async function CityPage({ params }: Props) {
       </section>
 
       {/* CTA */}
-      <section className="py-16">
-        <div className="mx-auto max-w-5xl px-6">
-          <ServiceCTA
-            serviceName="Google Review Collection"
-            serviceSlug="google-review-collection"
-            headline={`Ready to grow your ${city.name} business with authentic reviews?`}
-            description={`Our ${city.localGuidesCount} certified Local Guides in ${city.name} are ready to help you build a stronger online reputation. Join hundreds of ${city.state} businesses that trust us.`}
-          />
+      <section className="relative overflow-hidden bg-google-blue py-20">
+        <div className="pointer-events-none absolute inset-0 dot-pattern-white" />
+        <div className="pointer-events-none absolute -left-16 bottom-0 h-48 w-48 rounded-full bg-white/5" />
+        <div className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-white/5" />
+        <div className="pointer-events-none absolute left-1/3 top-1/4 h-24 w-24 rounded-full bg-white/5" />
+        <div className="relative mx-auto max-w-3xl px-6 text-center">
+          <h2 className="font-heading text-3xl font-bold text-white sm:text-4xl">
+            Ready to Grow Your {city.name} Business?
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-lg text-white/80">
+            Our {city.localGuidesCount} certified Local Guides in {city.name} are ready to help you build a stronger online reputation. Join hundreds of {city.state} businesses that trust us.
+          </p>
+          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Link
+              href="/get-started/"
+              className="inline-flex items-center rounded-lg bg-white px-8 py-4 text-base font-semibold text-google-blue shadow-md transition-all hover:bg-white/90 hover:shadow-lg"
+            >
+              Get Started Now
+            </Link>
+            <Link
+              href="/contact/"
+              className="inline-flex items-center rounded-lg border-2 border-white/30 px-8 py-4 text-base font-semibold text-white transition-all hover:border-white hover:bg-white/10"
+            >
+              Contact Us
+            </Link>
+          </div>
         </div>
       </section>
 

@@ -8,7 +8,6 @@ import {
   LocationsSection,
   TestimonialsSection,
   PricingPreview,
-  PlatformsSection,
   FAQSection,
   CTAFinal,
 } from "@/components/sections";
@@ -79,7 +78,6 @@ export default function HomePage() {
         <LocationsSection />
         <TestimonialsSection />
         <PricingPreview />
-        <PlatformsSection />
         <FAQSection />
         <CTAFinal />
       </main>

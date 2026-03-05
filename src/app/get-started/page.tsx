@@ -3,6 +3,7 @@ import { Breadcrumb } from "@/components/layout/breadcrumb";
 import { buildBreadcrumbs } from "@/lib/internal-links";
 import { GetStartedForm } from "@/components/forms";
 import { Shield, CheckCircle, Users, Star } from "@/components/icons";
+import { getColorForIndex } from "@/lib/colors";
 
 export const metadata: Metadata = {
   title: "Get Started",
@@ -10,6 +11,31 @@ export const metadata: Metadata = {
     "Order authentic Google Reviews for your Nigerian business. Fill out our form to get started with certified Local Guides.",
   alternates: { canonical: "https://buyreviewsinnigeria.com/get-started/" },
 };
+
+const sidebarSteps = [
+  {
+    number: 1,
+    title: "We review your submission",
+    subtitle: "Within 24 hours",
+  },
+  {
+    number: 2,
+    title: "Your account manager contacts you",
+    subtitle: "To finalize details and payment",
+  },
+  {
+    number: 3,
+    title: "Local Guides start visiting",
+    subtitle: "Reviews begin within the first week",
+  },
+];
+
+const trustSignals = [
+  { icon: Shield, label: "30-Day Retention Guarantee" },
+  { icon: CheckCircle, label: "Certified Local Guides (Level 4+)" },
+  { icon: Users, label: "500+ Active Reviewers" },
+  { icon: Star, label: "95%+ Retention Rate" },
+];
 
 export default function GetStartedPage() {
   const breadcrumbs = buildBreadcrumbs([
@@ -22,8 +48,10 @@ export default function GetStartedPage() {
         <Breadcrumb items={breadcrumbs} />
       </div>
 
-      <section className="py-20">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6">
+      <section className="relative overflow-hidden py-20">
+        <div className="dot-pattern-light absolute inset-0" />
+        <div className="absolute -right-32 top-20 h-80 w-80 rounded-full bg-google-blue/5 blur-3xl" />
+        <div className="relative mx-auto max-w-5xl px-4 sm:px-6">
           <div className="text-center">
             <h1 className="font-heading text-4xl font-bold text-text-primary sm:text-5xl">
               Get Started Today
@@ -42,72 +70,50 @@ export default function GetStartedPage() {
                   What Happens Next
                 </h2>
                 <ol className="mt-4 space-y-4">
-                  <li className="flex gap-3">
-                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-google-blue text-xs font-bold text-white">
-                      1
-                    </span>
-                    <div>
-                      <p className="text-sm font-medium text-text-primary">
-                        We review your submission
-                      </p>
-                      <p className="text-xs text-text-secondary">
-                        Within 24 hours
-                      </p>
-                    </div>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-google-blue text-xs font-bold text-white">
-                      2
-                    </span>
-                    <div>
-                      <p className="text-sm font-medium text-text-primary">
-                        Your account manager contacts you
-                      </p>
-                      <p className="text-xs text-text-secondary">
-                        To finalize details and payment
-                      </p>
-                    </div>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-google-blue text-xs font-bold text-white">
-                      3
-                    </span>
-                    <div>
-                      <p className="text-sm font-medium text-text-primary">
-                        Local Guides start visiting
-                      </p>
-                      <p className="text-xs text-text-secondary">
-                        Reviews begin within the first week
-                      </p>
-                    </div>
-                  </li>
+                  {sidebarSteps.map((step, index) => {
+                    const color = getColorForIndex(index);
+                    return (
+                      <li key={step.number} className="flex gap-3">
+                        <span className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gradient-to-br ${color.gradient} text-xs font-bold text-white shadow-sm`}>
+                          {step.number}
+                        </span>
+                        <div>
+                          <p className="text-sm font-medium text-text-primary">
+                            {step.title}
+                          </p>
+                          <p className="text-xs text-text-secondary">
+                            {step.subtitle}
+                          </p>
+                        </div>
+                      </li>
+                    );
+                  })}
                 </ol>
               </div>
 
               <div className="mt-6 space-y-3">
-                <div className="flex items-center gap-2 text-sm text-text-secondary">
-                  <Shield className="h-5 w-5 text-google-green" />
-                  30-Day Retention Guarantee
-                </div>
-                <div className="flex items-center gap-2 text-sm text-text-secondary">
-                  <CheckCircle className="h-5 w-5 text-google-green" />
-                  Certified Local Guides (Level 4+)
-                </div>
-                <div className="flex items-center gap-2 text-sm text-text-secondary">
-                  <Users className="h-5 w-5 text-google-green" />
-                  500+ Active Reviewers
-                </div>
-                <div className="flex items-center gap-2 text-sm text-text-secondary">
-                  <Star className="h-5 w-5" />
-                  95%+ Retention Rate
-                </div>
+                {trustSignals.map((signal, index) => {
+                  const color = getColorForIndex(index);
+                  return (
+                    <div
+                      key={signal.label}
+                      className={`flex items-center gap-2 rounded-full ${color.badgeBg} px-3 py-1.5 text-sm text-text-secondary`}
+                    >
+                      <signal.icon className={`h-5 w-5 ${color.text}`} />
+                      {signal.label}
+                    </div>
+                  );
+                })}
               </div>
             </div>
 
             {/* Form */}
             <div className="order-1 lg:order-2 lg:col-span-3">
-              <div className="rounded-xl border border-border bg-white p-8">
-                <GetStartedForm />
+              <div className="glass-dark overflow-hidden rounded-xl shadow-xl">
+                <div className="h-1 bg-gradient-to-r from-google-blue via-google-red to-google-yellow" />
+                <div className="p-8">
+                  <GetStartedForm />
+                </div>
               </div>
             </div>
           </div>

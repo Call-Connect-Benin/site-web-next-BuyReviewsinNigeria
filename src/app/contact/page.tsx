@@ -12,6 +12,13 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://buyreviewsinnigeria.com/contact/" },
 };
 
+const contactColorBgs = [
+  "rounded-lg bg-google-blue/5 p-4",
+  "rounded-lg bg-google-red/5 p-4",
+  "rounded-lg bg-google-green/5 p-4",
+  "rounded-lg bg-google-yellow/5 p-4",
+];
+
 export default function ContactPage() {
   const breadcrumbs = buildBreadcrumbs([
     { label: "Contact", href: "/contact/" },
@@ -23,8 +30,9 @@ export default function ContactPage() {
         <Breadcrumb items={breadcrumbs} />
       </div>
 
-      <section className="py-20">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6">
+      <section className="relative overflow-hidden py-20">
+        <div className="pointer-events-none absolute inset-0 dot-pattern-light" />
+        <div className="relative mx-auto max-w-5xl px-4 sm:px-6">
           <div className="text-center">
             <h1 className="font-heading text-4xl font-bold text-text-primary">
               Contact Us
@@ -40,8 +48,8 @@ export default function ContactPage() {
               <h2 className="font-heading text-xl font-semibold text-text-primary">
                 Get In Touch
               </h2>
-              <div className="mt-6 space-y-6">
-                <div className="flex items-start gap-3">
+              <div className="mt-6 space-y-4">
+                <div className={`flex items-start gap-3 ${contactColorBgs[0]}`}>
                   <Phone className="mt-0.5 h-5 w-5 text-google-blue" />
                   <div>
                     <p className="font-medium text-text-primary">Phone</p>
@@ -50,8 +58,8 @@ export default function ContactPage() {
                     </a>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <Mail className="mt-0.5 h-5 w-5 text-google-blue" />
+                <div className={`flex items-start gap-3 ${contactColorBgs[1]}`}>
+                  <Mail className="mt-0.5 h-5 w-5 text-google-red" />
                   <div>
                     <p className="font-medium text-text-primary">Email</p>
                     <a href={`mailto:${contactInfo.email}`} className="text-sm text-text-secondary hover:text-google-blue">
@@ -59,7 +67,7 @@ export default function ContactPage() {
                     </a>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
+                <div className={`flex items-start gap-3 ${contactColorBgs[2]}`}>
                   <Globe className="mt-0.5 h-5 w-5 text-google-green" />
                   <div>
                     <p className="font-medium text-text-primary">WhatsApp</p>
@@ -68,8 +76,8 @@ export default function ContactPage() {
                     </a>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <MapPin className="mt-0.5 h-5 w-5 text-google-red" />
+                <div className={`flex items-start gap-3 ${contactColorBgs[3]}`}>
+                  <MapPin className="mt-0.5 h-5 w-5 text-google-yellow" />
                   <div>
                     <p className="font-medium text-text-primary">Location</p>
                     <p className="text-sm text-text-secondary">{contactInfo.address}</p>
@@ -80,12 +88,15 @@ export default function ContactPage() {
 
             {/* Form */}
             <div className="lg:col-span-3">
-              <div className="rounded-xl border border-border bg-white p-8">
-                <h2 className="font-heading text-xl font-semibold text-text-primary">
-                  Send Us a Message
-                </h2>
-                <div className="mt-6">
-                  <ContactForm />
+              <div className="glass-dark shadow-xl rounded-xl overflow-hidden">
+                <div className="h-1 rounded-t-xl bg-gradient-to-r from-google-blue via-google-red to-google-green" />
+                <div className="p-8">
+                  <h2 className="font-heading text-xl font-semibold text-text-primary">
+                    Send Us a Message
+                  </h2>
+                  <div className="mt-6">
+                    <ContactForm />
+                  </div>
                 </div>
               </div>
             </div>

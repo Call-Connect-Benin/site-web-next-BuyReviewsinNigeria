@@ -2,11 +2,13 @@
 
 import { motion } from "framer-motion";
 import { testimonialsData } from "@/data/homepage";
-import { Star, MapPin } from "@/components/icons";
+import { Star, MapPin, Quote } from "@/components/icons";
+
+const accentColors = ['bg-google-blue', 'bg-google-green', 'bg-google-red'];
 
 export function TestimonialsSection() {
   return (
-    <section className="bg-white py-20 sm:py-28">
+    <section className="bg-gradient-to-b from-white via-google-blue/[0.02] to-white py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mx-auto max-w-2xl text-center">
@@ -19,20 +21,23 @@ export function TestimonialsSection() {
         </div>
 
         {/* Testimonial cards */}
-        <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {testimonialsData.testimonials.map((testimonial, index) => (
             <motion.div
               key={testimonial.name}
-              className="rounded-xl border border-border bg-white p-8"
+              className="relative overflow-hidden rounded-xl border border-border bg-white p-8"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.08 }}
             >
+              {/* Decorative quote icon */}
+              <Quote className="absolute -right-2 -top-2 h-20 w-20 text-google-blue/5" />
+
               {/* Stars */}
               <div className="flex gap-0.5">
                 {Array.from({ length: testimonial.rating }).map((_, i) => (
-                  <Star key={i} className="h-5 w-5" />
+                  <Star key={i} className="h-5 w-5 text-google-yellow" />
                 ))}
               </div>
 
@@ -42,7 +47,8 @@ export function TestimonialsSection() {
               </p>
 
               {/* Author */}
-              <div className="mt-6 border-t border-border pt-4">
+              <div className="mt-6 pt-4 relative">
+                <div className={`absolute top-0 left-0 h-0.5 w-12 ${accentColors[index % 3]}`} />
                 <div className="font-heading text-sm font-semibold text-text-primary">
                   {testimonial.name}
                 </div>

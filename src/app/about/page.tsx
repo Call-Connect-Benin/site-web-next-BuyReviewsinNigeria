@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/layout/breadcrumb";
 import { buildBreadcrumbs } from "@/lib/internal-links";
+import { getColorForIndex } from "@/lib/colors";
 import {
   Shield,
   Users,
@@ -53,6 +54,27 @@ const stats = [
   { value: "95%+", label: "Retention Rate" },
 ];
 
+const trustCards = [
+  {
+    icon: Star,
+    iconClass: "",
+    title: "Real Reviews",
+    description: "Written by verified Local Guides, not bots",
+  },
+  {
+    icon: Award,
+    iconClass: "text-google-blue",
+    title: "30-Day Guarantee",
+    description: "Free replacement if any review is removed",
+  },
+  {
+    icon: Globe,
+    iconClass: "text-google-green",
+    title: "15 Cities",
+    description: "Nationwide coverage across Nigeria",
+  },
+];
+
 export default function AboutPage() {
   const breadcrumbs = buildBreadcrumbs([
     { label: "About Us", href: "/about/" },
@@ -65,8 +87,10 @@ export default function AboutPage() {
       </div>
 
       {/* Hero */}
-      <section className="bg-white py-20">
-        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
+      <section className="relative overflow-hidden bg-white py-20">
+        <div className="pointer-events-none absolute inset-0 dot-pattern-light" />
+        <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-google-blue/10 blur-3xl" />
+        <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6">
           <h1 className="font-heading text-4xl font-bold text-text-primary sm:text-5xl">
             About BuyReviewsInNigeria
           </h1>
@@ -80,18 +104,21 @@ export default function AboutPage() {
       </section>
 
       {/* Stats */}
-      <section className="border-y border-border bg-white py-12">
+      <section className="bg-gradient-to-r from-google-blue/5 via-white to-google-green/5 border-y border-border py-12">
         <div className="mx-auto grid max-w-4xl grid-cols-2 gap-8 px-4 sm:grid-cols-4">
-          {stats.map((stat) => (
-            <div key={stat.label} className="text-center">
-              <div className="font-heading text-3xl font-bold text-google-blue">
-                {stat.value}
+          {stats.map((stat, index) => {
+            const color = getColorForIndex(index);
+            return (
+              <div key={stat.label} className={`rounded-lg bg-white p-6 shadow-sm border-t-4 ${color.borderTop} text-center`}>
+                <div className="font-heading text-3xl font-bold text-google-blue">
+                  {stat.value}
+                </div>
+                <div className="mt-1 text-sm text-text-secondary">
+                  {stat.label}
+                </div>
               </div>
-              <div className="mt-1 text-sm text-text-secondary">
-                {stat.label}
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
@@ -138,21 +165,24 @@ export default function AboutPage() {
             What We Stand For
           </h2>
           <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2">
-            {values.map((value) => (
-              <div key={value.title} className="flex gap-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-google-blue/10">
-                  <value.icon className="h-6 w-6 text-google-blue" />
+            {values.map((value, index) => {
+              const color = getColorForIndex(index);
+              return (
+                <div key={value.title} className={`flex gap-4 border-l-4 ${color.borderLeft} rounded-r-lg pl-4`}>
+                  <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-lg ${color.bgGradient}`}>
+                    <value.icon className={`h-6 w-6 ${color.text}`} />
+                  </div>
+                  <div>
+                    <h3 className="font-heading text-lg font-semibold text-text-primary">
+                      {value.title}
+                    </h3>
+                    <p className="mt-2 text-sm text-text-secondary">
+                      {value.description}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-heading text-lg font-semibold text-text-primary">
-                    {value.title}
-                  </h3>
-                  <p className="mt-2 text-sm text-text-secondary">
-                    {value.description}
-                  </p>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -164,28 +194,26 @@ export default function AboutPage() {
             Why Businesses Trust Us
           </h2>
           <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
-            <div className="rounded-xl border border-border bg-white p-6">
-              <Star className="mx-auto h-8 w-8" />
-              <h3 className="mt-4 font-heading font-semibold text-text-primary">Real Reviews</h3>
-              <p className="mt-2 text-sm text-text-secondary">Written by verified Local Guides, not bots</p>
-            </div>
-            <div className="rounded-xl border border-border bg-white p-6">
-              <Award className="mx-auto h-8 w-8 text-google-blue" />
-              <h3 className="mt-4 font-heading font-semibold text-text-primary">30-Day Guarantee</h3>
-              <p className="mt-2 text-sm text-text-secondary">Free replacement if any review is removed</p>
-            </div>
-            <div className="rounded-xl border border-border bg-white p-6">
-              <Globe className="mx-auto h-8 w-8 text-google-green" />
-              <h3 className="mt-4 font-heading font-semibold text-text-primary">15 Cities</h3>
-              <p className="mt-2 text-sm text-text-secondary">Nationwide coverage across Nigeria</p>
-            </div>
+            {trustCards.map((card, index) => {
+              const color = getColorForIndex(index);
+              return (
+                <div key={card.title} className={`rounded-xl border border-border bg-white p-6 border-t-4 ${color.borderTop} hover:shadow-lg hover:-translate-y-1 transition-all duration-300`}>
+                  <card.icon className={`mx-auto h-8 w-8 ${card.iconClass}`} />
+                  <h3 className="mt-4 font-heading font-semibold text-text-primary">{card.title}</h3>
+                  <p className="mt-2 text-sm text-text-secondary">{card.description}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="bg-google-blue py-16">
-        <div className="mx-auto max-w-2xl px-4 text-center">
+      <section className="relative overflow-hidden bg-google-blue py-16">
+        <div className="pointer-events-none absolute inset-0 dot-pattern-white" />
+        <div className="pointer-events-none absolute -left-16 bottom-0 h-48 w-48 rounded-full bg-white/5" />
+        <div className="pointer-events-none absolute -right-12 top-0 h-36 w-36 rounded-full bg-white/5" />
+        <div className="relative mx-auto max-w-2xl px-4 text-center">
           <h2 className="font-heading text-3xl font-bold text-white">Ready to Build Your Reputation?</h2>
           <p className="mt-4 text-lg text-white/80">Join hundreds of Nigerian businesses that trust us.</p>
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">

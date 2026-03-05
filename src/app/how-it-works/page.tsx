@@ -4,6 +4,7 @@ import { Breadcrumb } from "@/components/layout/breadcrumb";
 import { buildBreadcrumbs } from "@/lib/internal-links";
 import { iconMap } from "@/components/icons";
 import { CheckCircle } from "@/components/icons";
+import { getColorForIndex } from "@/lib/colors";
 
 export const metadata: Metadata = {
   title: "How It Works",
@@ -105,8 +106,9 @@ export default function HowItWorksPage() {
       </div>
 
       {/* Hero */}
-      <section className="bg-white py-20">
-        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
+      <section className="relative overflow-hidden bg-white py-20">
+        <div className="dot-pattern-light absolute inset-0" />
+        <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6">
           <h1 className="font-heading text-4xl font-bold text-text-primary sm:text-5xl">
             How It Works
           </h1>
@@ -121,24 +123,25 @@ export default function HowItWorksPage() {
       <section className="py-20">
         <div className="mx-auto max-w-3xl px-4 sm:px-6">
           <div className="space-y-16">
-            {detailedSteps.map((step) => {
+            {detailedSteps.map((step, index) => {
               const Icon = iconMap[step.icon];
+              const color = getColorForIndex(index);
               return (
                 <div key={step.step} className="relative flex gap-6">
                   {/* Step indicator */}
                   <div className="flex shrink-0 flex-col items-center">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-google-blue text-white">
+                    <div className={`flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${color.gradient} text-white shadow-lg`}>
                       <Icon className="h-6 w-6" />
                     </div>
                     {step.step < detailedSteps.length && (
-                      <div className="mt-4 h-full w-px bg-border" />
+                      <div className="mt-4 h-full w-0.5 bg-gradient-to-b from-google-blue via-google-green to-google-yellow" />
                     )}
                   </div>
 
                   {/* Content */}
                   <div className="pb-8">
                     <div className="flex items-center gap-3">
-                      <span className="rounded-full bg-google-blue/10 px-3 py-1 text-xs font-semibold text-google-blue">
+                      <span className={`rounded-full ${color.bgGradient} px-3 py-1 text-xs font-semibold ${color.text}`}>
                         Step {step.step}
                       </span>
                     </div>
@@ -154,7 +157,7 @@ export default function HowItWorksPage() {
                           key={detail}
                           className="flex items-start gap-2 text-sm text-text-secondary"
                         >
-                          <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-google-green" />
+                          <CheckCircle className={`mt-0.5 h-4 w-4 shrink-0 ${color.text}`} />
                           {detail}
                         </li>
                       ))}
@@ -168,8 +171,11 @@ export default function HowItWorksPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-google-blue py-16">
-        <div className="mx-auto max-w-2xl px-4 text-center">
+      <section className="relative overflow-hidden bg-google-blue py-16">
+        <div className="dot-pattern-white absolute inset-0" />
+        <div className="absolute -left-20 -top-20 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
+        <div className="absolute -bottom-20 -right-20 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
+        <div className="relative mx-auto max-w-2xl px-4 text-center">
           <h2 className="font-heading text-3xl font-bold text-white">
             Ready to Get Started?
           </h2>

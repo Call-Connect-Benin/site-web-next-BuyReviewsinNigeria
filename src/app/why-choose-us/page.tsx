@@ -12,6 +12,7 @@ import {
   Award,
   Zap,
 } from "@/components/icons";
+import { getColorForIndex } from "@/lib/colors";
 
 export const metadata: Metadata = {
   title: "Why Choose Us",
@@ -83,8 +84,10 @@ export default function WhyChooseUsPage() {
       </div>
 
       {/* Hero */}
-      <section className="bg-white py-20">
-        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
+      <section className="relative overflow-hidden bg-white py-20">
+        <div className="dot-pattern-light absolute inset-0" />
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-72 w-72 rounded-full bg-google-blue/5 blur-3xl" />
+        <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6">
           <h1 className="font-heading text-4xl font-bold text-text-primary sm:text-5xl">
             Why Choose BuyReviewsInNigeria
           </h1>
@@ -100,36 +103,42 @@ export default function WhyChooseUsPage() {
       <section className="py-20">
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
-            {reasons.map((reason, index) => (
-              <div
-                key={reason.title}
-                className="rounded-xl border border-border bg-white p-8"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-google-blue/10">
-                    <reason.icon className="h-6 w-6 text-google-blue" />
-                  </div>
-                  <div>
-                    <span className="text-xs font-semibold text-google-blue">
-                      #{index + 1}
-                    </span>
-                    <h2 className="mt-1 font-heading text-lg font-bold text-text-primary">
-                      {reason.title}
-                    </h2>
-                    <p className="mt-3 text-sm text-text-secondary">
-                      {reason.description}
-                    </p>
+            {reasons.map((reason, index) => {
+              const color = getColorForIndex(index);
+              return (
+                <div
+                  key={reason.title}
+                  className={`rounded-xl border border-border border-t-4 ${color.borderTop} bg-white p-8 hover:shadow-lg hover:-translate-y-1 transition-all duration-300`}
+                >
+                  <div className="flex items-start gap-4">
+                    <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-lg ${color.bgGradient}`}>
+                      <reason.icon className={`h-6 w-6 ${color.text}`} />
+                    </div>
+                    <div>
+                      <span className={`inline-flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-br ${color.gradient} text-xs font-bold text-white`}>
+                        {index + 1}
+                      </span>
+                      <h2 className="mt-1 font-heading text-lg font-bold text-text-primary">
+                        {reason.title}
+                      </h2>
+                      <p className="mt-3 text-sm text-text-secondary">
+                        {reason.description}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="bg-google-blue py-16">
-        <div className="mx-auto max-w-2xl px-4 text-center">
+      <section className="relative overflow-hidden bg-google-blue py-16">
+        <div className="dot-pattern-white absolute inset-0" />
+        <div className="absolute -left-20 -top-20 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
+        <div className="absolute -bottom-20 -right-20 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
+        <div className="relative mx-auto max-w-2xl px-4 text-center">
           <h2 className="font-heading text-3xl font-bold text-white">
             Ready to Get Started?
           </h2>

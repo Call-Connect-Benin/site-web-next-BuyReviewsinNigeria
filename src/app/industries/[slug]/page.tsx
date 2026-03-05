@@ -18,6 +18,7 @@ import { Breadcrumb } from "@/components/layout/breadcrumb";
 import { InternalLinks } from "@/components/sections";
 import { iconMap, CheckCircle, ArrowRight, MapPin, Quote } from "@/components/icons";
 import { StarRating, FaqAccordion } from "@/components/ui";
+import { getColorForIndex } from "@/lib/colors";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -117,7 +118,7 @@ export default async function IndustryPage({ params }: Props) {
       <section className="bg-white py-16 sm:py-20">
         <div className="mx-auto max-w-5xl px-6">
           <div className="flex items-start gap-4">
-            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-google-blue/10 text-google-blue">
+            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-google-blue/15 to-google-blue/5 shadow-[0_0_16px_rgba(66,133,244,0.2)] text-google-blue">
               <Icon className="h-7 w-7" />
             </div>
             <div>
@@ -173,14 +174,19 @@ export default async function IndustryPage({ params }: Props) {
             {industry.name} businesses in Nigeria face unique reputation challenges online.
           </p>
           <ul className="mt-8 space-y-4">
-            {industry.commonChallenges.map((challenge) => (
+            {industry.commonChallenges.map((challenge, index) => {
+              const color = getColorForIndex(index);
+              const dotColors = ["bg-google-blue", "bg-google-red", "bg-google-yellow", "bg-google-green"] as const;
+              const dotBg = dotColors[index % dotColors.length];
+              return (
               <li key={challenge} className="flex items-start gap-3">
-                <div className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-google-red/10">
-                  <span className="h-2 w-2 rounded-full bg-google-red" />
+                <div className={`mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${color.bg}`}>
+                  <span className={`h-2 w-2 rounded-full ${dotBg}`} />
                 </div>
                 <span className="text-text-secondary">{challenge}</span>
               </li>
-            ))}
+              );
+            })}
           </ul>
         </div>
       </section>
@@ -201,15 +207,16 @@ export default async function IndustryPage({ params }: Props) {
               Services for {industry.name}
             </h3>
             <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {relatedServiceData.map((service) => {
+              {relatedServiceData.map((service, index) => {
                 const ServiceIcon = iconMap[service.icon];
+                const color = getColorForIndex(index);
                 return (
                   <Link
                     key={service.slug}
                     href={`/services/${service.slug}/`}
-                    className="group flex items-center gap-3 rounded-lg border border-border bg-white p-4 transition-all hover:border-google-blue hover:shadow-sm"
+                    className={`group flex items-center gap-3 rounded-lg border border-border border-t-4 ${color.borderTop} bg-white p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg`}
                   >
-                    <ServiceIcon className="h-5 w-5 shrink-0 text-google-blue" />
+                    <ServiceIcon className={`h-5 w-5 shrink-0 ${color.text}`} />
                     <span className="text-sm font-medium text-text-primary group-hover:text-google-blue">
                       {service.name}
                     </span>
@@ -230,7 +237,8 @@ export default async function IndustryPage({ params }: Props) {
           <p className="mt-2 text-text-secondary">
             Here is an example of the kind of authentic review our Local Guides write for {industry.name.toLowerCase()} businesses.
           </p>
-          <div className="mt-8 rounded-xl border border-border bg-bg p-6 sm:p-8">
+          <div className="relative overflow-hidden mt-8 rounded-xl border border-border glass-dark p-6 sm:p-8">
+            <Quote className="absolute -right-2 -top-2 h-20 w-20 text-google-blue/5" />
             <div className="flex items-start gap-4">
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-google-blue text-white">
                 <Quote className="h-5 w-5" />
@@ -263,7 +271,7 @@ export default async function IndustryPage({ params }: Props) {
               <Link
                 key={city.slug}
                 href={`/locations/${city.slug}/`}
-                className="group flex items-center gap-2 rounded-lg border border-border bg-white px-4 py-3 transition-all hover:border-google-blue hover:shadow-sm"
+                className="group flex items-center gap-2 rounded-lg border border-border bg-white px-4 py-3 transition-all duration-300 hover:border-google-blue hover:shadow-[0_0_16px_rgba(66,133,244,0.15)]"
               >
                 <MapPin className="h-4 w-4 shrink-0 text-google-red" />
                 <span className="text-sm font-medium text-text-primary group-hover:text-google-blue">
@@ -399,8 +407,12 @@ export default async function IndustryPage({ params }: Props) {
       </section>
 
       {/* CTA */}
-      <section className="bg-google-blue py-20">
-        <div className="mx-auto max-w-3xl px-6 text-center">
+      <section className="relative overflow-hidden bg-google-blue py-20">
+        <div className="pointer-events-none absolute inset-0 dot-pattern-white" />
+        <div className="pointer-events-none absolute -left-16 bottom-0 h-48 w-48 rounded-full bg-white/5" />
+        <div className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-white/5" />
+        <div className="pointer-events-none absolute left-1/3 top-1/4 h-24 w-24 rounded-full bg-white/5" />
+        <div className="relative mx-auto max-w-3xl px-6 text-center">
           <h2 className="font-heading text-3xl font-bold text-white">
             Ready to Boost Your {industry.name} Reviews?
           </h2>

@@ -5,10 +5,11 @@ import { motion } from "framer-motion";
 import { industriesData } from "@/data/homepage";
 import { iconMap } from "@/components/icons";
 import { ArrowRight } from "@/components/icons";
+import { getColorForIndex } from "@/lib/colors";
 
 export function IndustriesSection() {
   return (
-    <section className="bg-white py-20 sm:py-28">
+    <section className="bg-white py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mx-auto max-w-2xl text-center">
@@ -21,9 +22,10 @@ export function IndustriesSection() {
         </div>
 
         {/* Industry grid */}
-        <div className="mt-16 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+        <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
           {industriesData.industries.map((industry, index) => {
             const Icon = iconMap[industry.icon];
+            const color = getColorForIndex(index);
             return (
               <motion.div
                 key={industry.slug}
@@ -34,10 +36,10 @@ export function IndustriesSection() {
               >
                 <Link
                   href={`/industries/${industry.slug}/`}
-                  className="group flex flex-col items-center rounded-xl border border-border bg-white p-6 text-center transition-all hover:border-google-blue hover:shadow-md"
+                  className={`group flex flex-col items-center rounded-xl border border-border bg-white p-6 text-center transition-all duration-300 hover:border-transparent hover:shadow-md ${color.glow}`}
                 >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-bg">
-                    <Icon className="h-6 w-6 text-text-secondary group-hover:text-google-blue" />
+                  <div className={`flex h-12 w-12 items-center justify-center rounded-lg ${color.bgGradient}`}>
+                    <Icon className={`h-6 w-6 ${color.text}`} />
                   </div>
                   <h3 className="mt-3 text-sm font-semibold text-text-primary">
                     {industry.name}
@@ -52,7 +54,7 @@ export function IndustriesSection() {
         </div>
 
         {/* View all link */}
-        <div className="mt-12 text-center">
+        <div className="mt-8 text-center">
           <Link
             href={industriesData.viewAllHref}
             className="inline-flex items-center gap-2 text-base font-medium text-google-blue hover:underline"

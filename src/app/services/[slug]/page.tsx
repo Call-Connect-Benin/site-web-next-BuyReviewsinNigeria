@@ -13,6 +13,7 @@ import { Breadcrumb } from "@/components/layout/breadcrumb";
 import { InternalLinks } from "@/components/sections";
 import { iconMap, ArrowRight, CheckCircle, Shield, MapPin } from "@/components/icons";
 import { FaqAccordion } from "@/components/ui/faq-accordion";
+import { getColorForIndex } from "@/lib/colors";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -129,7 +130,7 @@ export default async function ServicePage({ params }: Props) {
         {/* ── 1. Hero ── */}
         <section className="mx-auto max-w-5xl px-6 pb-16 pt-4">
           <div className="flex items-start gap-4">
-            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-google-blue/10">
+            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-google-blue/15 to-google-blue/5 shadow-[0_0_16px_rgba(66,133,244,0.2)]">
               <ServiceIcon className="h-7 w-7 text-google-blue" />
             </div>
             <div>
@@ -189,15 +190,16 @@ export default async function ServicePage({ params }: Props) {
             </p>
 
             <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {service.benefits.map((benefit) => {
+              {service.benefits.map((benefit, index) => {
                 const BenefitIcon = iconMap[benefit.icon];
+                const color = getColorForIndex(index);
                 return (
                   <div
                     key={benefit.title}
-                    className="rounded-lg border border-border bg-bg p-6"
+                    className={`rounded-lg border border-border border-t-4 ${color.borderTop} bg-bg p-6 hover:-translate-y-1 hover:shadow-lg transition-all duration-300`}
                   >
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-google-blue/10">
-                      <BenefitIcon className="h-5 w-5 text-google-blue" />
+                    <div className={`flex h-10 w-10 items-center justify-center rounded-lg ${color.bgGradient}`}>
+                      <BenefitIcon className={`h-5 w-5 ${color.text}`} />
                     </div>
                     <h3 className="mt-4 font-heading text-base font-bold text-text-primary">
                       {benefit.title}
@@ -223,12 +225,14 @@ export default async function ServicePage({ params }: Props) {
             </p>
 
             <div className="mt-10 space-y-6">
-              {service.process.map((step) => (
+              {service.process.map((step, index) => {
+                const color = getColorForIndex(index);
+                return (
                 <div
                   key={step.step}
                   className="flex gap-4 rounded-lg border border-border bg-white p-6"
                 >
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-google-blue text-sm font-bold text-white">
+                  <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br ${color.gradient} text-sm font-bold text-white`}>
                     {step.step}
                   </div>
                   <div>
@@ -240,7 +244,8 @@ export default async function ServicePage({ params }: Props) {
                     </p>
                   </div>
                 </div>
-              ))}
+                );
+              })}
             </div>
 
             <div className="mt-8">
@@ -347,17 +352,20 @@ export default async function ServicePage({ params }: Props) {
             </p>
 
             <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {pricingPlans.map((plan) => (
+              {pricingPlans.map((plan, index) => (
                 <div
                   key={plan.slug}
-                  className={`relative rounded-lg border p-6 ${
+                  className={`relative rounded-lg border p-6 hover:-translate-y-1 transition-all duration-300 ${
                     plan.isPopular
-                      ? "border-google-blue bg-google-blue/5 shadow-md"
-                      : "border-border bg-bg"
+                      ? "border-google-blue shadow-lg"
+                      : `border-border border-t-2 ${getColorForIndex(index).borderTop} bg-bg`
                   }`}
                 >
                   {plan.isPopular && (
-                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-google-blue px-3 py-1 text-xs font-semibold text-white">
+                    <div className="absolute inset-x-0 top-0 h-1.5 rounded-t-lg bg-gradient-to-r from-google-blue via-google-red to-google-yellow" />
+                  )}
+                  {plan.isPopular && (
+                    <span className="animate-pulse-glow shadow-md absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-google-blue px-3 py-1 text-xs font-semibold text-white">
                       Most Popular
                     </span>
                   )}
@@ -390,9 +398,9 @@ export default async function ServicePage({ params }: Props) {
                   </ul>
                   <Link
                     href={plan.ctaLink}
-                    className={`mt-6 block rounded-lg py-2.5 text-center text-sm font-medium transition-shadow hover:shadow-md ${
+                    className={`mt-6 block rounded-lg py-2.5 text-center text-sm font-medium transition-all ${
                       plan.isPopular
-                        ? "bg-google-blue text-white"
+                        ? "bg-gradient-to-r from-google-blue to-google-blue/80 text-white hover:shadow-lg hover:shadow-google-blue/25"
                         : "border border-border bg-white text-text-primary hover:border-google-blue hover:text-google-blue"
                     }`}
                   >
@@ -480,8 +488,12 @@ export default async function ServicePage({ params }: Props) {
         )}
 
         {/* ── 9. CTA Final ── */}
-        <section className="bg-google-blue py-20">
-          <div className="mx-auto max-w-3xl px-6 text-center">
+        <section className="relative overflow-hidden bg-google-blue py-20">
+          <div className="pointer-events-none absolute inset-0 dot-pattern-white" />
+          <div className="pointer-events-none absolute -left-16 bottom-0 h-48 w-48 rounded-full bg-white/5" />
+          <div className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-white/5" />
+          <div className="pointer-events-none absolute left-1/3 top-1/4 h-24 w-24 rounded-full bg-white/5" />
+          <div className="relative mx-auto max-w-3xl px-6 text-center">
             <h2 className="font-heading text-3xl font-bold text-white sm:text-4xl">
               Ready to Get Started with {service.name}?
             </h2>

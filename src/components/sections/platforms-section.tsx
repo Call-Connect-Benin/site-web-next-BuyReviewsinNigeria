@@ -8,7 +8,7 @@ import { ArrowRight } from "@/components/icons";
 
 export function PlatformsSection() {
   return (
-    <section className="bg-white py-20 sm:py-28">
+    <section className="bg-white py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mx-auto max-w-2xl text-center">
@@ -21,7 +21,7 @@ export function PlatformsSection() {
         </div>
 
         {/* Platform cards */}
-        <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {platformsData.platforms.map((platform, index) => {
             const Icon = iconMap[platform.icon];
             return (

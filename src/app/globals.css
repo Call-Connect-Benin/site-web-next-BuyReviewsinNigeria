@@ -31,6 +31,12 @@
   --shadow-lg: 0 2px 6px 0 rgba(60, 64, 67, 0.2), 0 8px 16px 4px rgba(60, 64, 67, 0.12);
   --shadow-xl: 0 4px 12px 0 rgba(60, 64, 67, 0.25), 0 16px 32px 4px rgba(60, 64, 67, 0.15);
   --shadow-hover: 0 1px 3px 0 rgba(60, 64, 67, 0.2), 0 8px 24px 4px rgba(60, 64, 67, 0.15);
+
+  /* ── Colored Shadows ── */
+  --shadow-colored-blue: 0 4px 14px -2px rgba(66, 133, 244, 0.25);
+  --shadow-colored-green: 0 4px 14px -2px rgba(52, 168, 83, 0.25);
+  --shadow-colored-red: 0 4px 14px -2px rgba(234, 67, 53, 0.25);
+  --shadow-colored-yellow: 0 4px 14px -2px rgba(251, 188, 4, 0.25);
 }
 
 body {
@@ -47,4 +53,69 @@ h1, h2, h3, h4, h5, h6 {
 
 code, pre {
   font-family: var(--font-mono), monospace;
+}
+
+/* ── Gradient Text ── */
+.gradient-text {
+  background: linear-gradient(135deg, #4285F4 0%, #34A853 50%, #FBBC04 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-blue {
+  background: linear-gradient(135deg, #4285F4 0%, #34A853 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Dot Grid Patterns ── */
+.dot-pattern-light {
+  background-image: radial-gradient(circle, rgba(66, 133, 244, 0.07) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.dot-pattern-white {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* ── Glass Morphism ── */
+.glass-dark {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(218, 220, 224, 0.5);
+}
+
+/* ── Animations ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+.animate-float-slow {
+  animation: float 8s ease-in-out infinite;
+}
+.animate-float-delayed {
+  animation: float 6s ease-in-out 3s infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(66, 133, 244, 0.4); }
+  50% { box-shadow: 0 0 16px 4px rgba(66, 133, 244, 0.2); }
+}
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
 }
