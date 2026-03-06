@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { howItWorksData } from "@/data/homepage";
 import { iconMap } from "@/components/icons";
@@ -62,6 +63,23 @@ export function HowItWorks() {
             );
           })}
         </div>
+
+        {/* Visual banner */}
+        <motion.div
+          className="mt-12 overflow-hidden rounded-2xl shadow-lg"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <Image
+            src="/images/local-guides-africa.jpeg"
+            alt="Local Guides across Nigeria and Africa leaving reviews"
+            width={1200}
+            height={400}
+            className="h-64 w-full object-cover object-top sm:h-80"
+          />
+        </motion.div>
       </div>
     </section>
   );

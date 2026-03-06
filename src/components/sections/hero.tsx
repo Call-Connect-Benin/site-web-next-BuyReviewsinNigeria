@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { heroData } from "@/data/homepage";
 import { iconMap } from "@/components/icons";
+import Image from "next/image";
 import { QuickQuoteForm } from "@/components/forms/quick-quote-form";
 import { getColorForIndex } from "@/lib/colors";
 
@@ -98,13 +99,23 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Right: Quick Quote Form with glass morphism */}
+          {/* Right: Image + Quick Quote Form */}
           <motion.div
             className="mx-auto w-full max-w-md lg:mx-0"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
+            <div className="mb-4 overflow-hidden rounded-2xl shadow-lg">
+              <Image
+                src="/images/hero-nigerian-professionals.jpeg"
+                alt="Nigerian professionals using smartphones"
+                width={480}
+                height={300}
+                className="h-48 w-full object-cover object-top"
+                priority
+              />
+            </div>
             <div className="glass-dark rounded-2xl p-6 shadow-xl ring-1 ring-white/50 sm:p-8">
               <h2 className="font-heading text-xl font-bold text-text-primary">
                 Get Your Free Quote

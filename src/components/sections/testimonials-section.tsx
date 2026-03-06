@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { testimonialsData } from "@/data/homepage";
 import { Star, MapPin, Quote } from "@/components/icons";
@@ -19,6 +20,23 @@ export function TestimonialsSection() {
             {testimonialsData.subtitle}
           </p>
         </div>
+
+        {/* Business illustration */}
+        <motion.div
+          className="mt-8 mb-10 overflow-hidden rounded-2xl shadow-md"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <Image
+            src="/images/nigerian-business-illustration.jpeg"
+            alt="Nigerian business owners and professionals"
+            width={1200}
+            height={400}
+            className="h-56 w-full object-cover object-center sm:h-72"
+          />
+        </motion.div>
 
         {/* Testimonial cards */}
         <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
