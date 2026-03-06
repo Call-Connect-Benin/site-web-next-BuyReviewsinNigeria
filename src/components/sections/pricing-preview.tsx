@@ -77,16 +77,18 @@ export function PricingPreview() {
               </ul>
 
               {/* CTA */}
-              <Link
+              <a
                 href={plan.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`mt-8 block rounded-lg py-3 text-center text-sm font-semibold transition-all ${
                   plan.isPopular
                     ? "bg-gradient-to-r from-google-blue to-google-blue/80 text-white hover:shadow-lg hover:shadow-google-blue/25"
                     : "border border-border bg-white text-text-primary hover:border-google-blue hover:text-google-blue"
                 }`}
               >
-                Get Started
-              </Link>
+                Subscribe Now
+              </a>
             </motion.div>
           ))}
         </div>

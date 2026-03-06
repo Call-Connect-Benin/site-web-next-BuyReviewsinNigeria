@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Roboto, Roboto_Mono } from "next/font/google";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { WhatsAppButton } from "@/components/layout/whatsapp-button";
 import "./globals.css";
 
 const inter = Inter({
@@ -71,6 +72,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <WhatsAppButton />
       </body>
     </html>
   );

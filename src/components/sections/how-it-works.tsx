@@ -9,6 +9,17 @@ import { getColorForIndex } from "@/lib/colors";
 export function HowItWorks() {
   return (
     <section className="relative overflow-hidden bg-white py-12 sm:py-16">
+      {/* Subtle background image */}
+      <div className="pointer-events-none absolute inset-0">
+        <Image
+          src="/images/local-guides-africa.jpeg"
+          alt=""
+          fill
+          className="object-contain object-center opacity-[0.08]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-white/60 via-transparent to-white/60" />
+      </div>
+
       {/* Dot pattern background */}
       <div className="pointer-events-none absolute inset-0 dot-pattern-light opacity-50" />
 
@@ -64,22 +75,6 @@ export function HowItWorks() {
           })}
         </div>
 
-        {/* Visual banner */}
-        <motion.div
-          className="mt-12 overflow-hidden rounded-2xl shadow-lg"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <Image
-            src="/images/local-guides-africa.jpeg"
-            alt="Local Guides across Nigeria and Africa leaving reviews"
-            width={1200}
-            height={400}
-            className="h-64 w-full object-cover object-top sm:h-80"
-          />
-        </motion.div>
       </div>
     </section>
   );

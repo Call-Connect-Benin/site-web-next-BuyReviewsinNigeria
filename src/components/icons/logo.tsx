@@ -4,7 +4,7 @@ interface LogoProps extends React.SVGProps<SVGSVGElement> {
   showText?: boolean;
 }
 
-/** Full logo: "BuyReviews" in Google colors + "inNigeria" in green */
+/** Full logo: "BuyReviews" in Google colors + "inAfrica" in green */
 export function Logo({ showText = true, ...props }: LogoProps) {
   if (!showText) {
     return <LogoIcon {...props} />;
@@ -12,10 +12,10 @@ export function Logo({ showText = true, ...props }: LogoProps) {
 
   return (
     <svg
-      viewBox="0 0 280 40"
+      viewBox="0 0 300 40"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      aria-label="BuyReviewsInNigeria"
+      aria-label="BuyReviewsInAfrica"
       role="img"
       {...props}
     >
@@ -41,8 +41,8 @@ export function Logo({ showText = true, ...props }: LogoProps) {
       <text x="148" y="30" fontFamily="var(--font-heading), Inter, sans-serif" fontWeight="700" fontSize="28" fill="#34A853">s</text>
       {/* "in" - text secondary */}
       <text x="166" y="30" fontFamily="var(--font-heading), Inter, sans-serif" fontWeight="400" fontSize="28" fill="#5F6368">in</text>
-      {/* "Nigeria" - Google Green */}
-      <text x="192" y="30" fontFamily="var(--font-heading), Inter, sans-serif" fontWeight="700" fontSize="28" fill="#34A853">Nigeria</text>
+      {/* "Africa" - Google Green */}
+      <text x="192" y="30" fontFamily="var(--font-heading), Inter, sans-serif" fontWeight="700" fontSize="28" fill="#34A853">Africa</text>
     </svg>
   );
 }
@@ -54,7 +54,7 @@ export function LogoIcon(props: React.SVGProps<SVGSVGElement>) {
       viewBox="0 0 40 40"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      aria-label="BuyReviewsInNigeria"
+      aria-label="BuyReviewsInAfrica"
       role="img"
       {...props}
     >

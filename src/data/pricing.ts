@@ -19,8 +19,8 @@ export const pricingPlans: PricingPlan[] = [
       "Monthly performance report",
     ],
     isPopular: false,
-    ctaText: "Get Started",
-    ctaLink: "/get-started/",
+    ctaText: "Subscribe Now",
+    ctaLink: "https://buy.stripe.com/9B6fZig6r1mg4eegUL6wE36",
   },
   {
     name: "Growth",
@@ -42,8 +42,8 @@ export const pricingPlans: PricingPlan[] = [
       "Bi-weekly performance reports",
     ],
     isPopular: true,
-    ctaText: "Get Started",
-    ctaLink: "/get-started/",
+    ctaText: "Subscribe Now",
+    ctaLink: "https://buy.stripe.com/9B100k1bx5CwcKK33V6wE37",
   },
   {
     name: "Enterprise",
@@ -67,8 +67,8 @@ export const pricingPlans: PricingPlan[] = [
       "Multi-location support",
     ],
     isPopular: false,
-    ctaText: "Get Started",
-    ctaLink: "/get-started/",
+    ctaText: "Subscribe Now",
+    ctaLink: "https://buy.stripe.com/cNicN6aM77KE4ee5c36wE38",
   },
 ];
 

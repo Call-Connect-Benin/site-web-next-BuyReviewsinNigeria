@@ -389,10 +389,14 @@ export const footerBottomLinks: NavLink[] = [
 
 // ── Social / contact info for footer ──
 export const contactInfo = {
-  phone: "+234-XXX-XXX-XXXX",
-  email: "info@buyreviewsinnigeria.com",
-  whatsapp: "https://wa.me/234XXXXXXXXXX",
+  phone: "+2347085888855",
+  email: "info@lannkin.ca",
+  whatsapp: "https://wa.me/2347085888855",
   address: "Lagos, Nigeria",
+  company: "LANNKIN S.A.",
+  neq: "1179695284",
+  companyAddress: "306-1555 boul. de l'Avenir, Laval (Québec) H7S2N5, Canada",
+  website: "https://lannkin.com",
 } as const;
 
 // ── Helper Functions ──

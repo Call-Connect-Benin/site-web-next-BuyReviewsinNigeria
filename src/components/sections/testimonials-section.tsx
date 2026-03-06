@@ -9,8 +9,19 @@ const accentColors = ['bg-google-blue', 'bg-google-green', 'bg-google-red'];
 
 export function TestimonialsSection() {
   return (
-    <section className="bg-gradient-to-b from-white via-google-blue/[0.02] to-white py-12 sm:py-16">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden bg-gradient-to-b from-white via-google-blue/[0.02] to-white py-12 sm:py-16">
+      {/* Subtle background image */}
+      <div className="pointer-events-none absolute inset-0">
+        <Image
+          src="/images/nigerian-business-illustration.jpeg"
+          alt=""
+          fill
+          className="object-contain object-center opacity-[0.08]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-transparent to-white/60" />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-heading text-3xl font-bold text-text-primary sm:text-4xl">
@@ -20,23 +31,6 @@ export function TestimonialsSection() {
             {testimonialsData.subtitle}
           </p>
         </div>
-
-        {/* Business illustration */}
-        <motion.div
-          className="mt-8 mb-10 overflow-hidden rounded-2xl shadow-md"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <Image
-            src="/images/nigerian-business-illustration.jpeg"
-            alt="Nigerian business owners and professionals"
-            width={1200}
-            height={400}
-            className="h-56 w-full object-cover object-center sm:h-72"
-          />
-        </motion.div>
 
         {/* Testimonial cards */}
         <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Logo } from "@/components/icons/logo";
 import { footerColumns, footerBottomLinks, contactInfo } from "@/data/navigation";
-import { Phone, Mail } from "@/components/icons";
+import { Phone, Mail, Globe, MapPin } from "@/components/icons";
 
 export function Footer() {
   return (
@@ -16,7 +16,16 @@ export function Footer() {
             </Link>
             <p className="mt-4 text-sm text-text-secondary">
               Nigeria&apos;s leading platform for authentic Google Reviews from
-              certified Local Guides.
+              certified Local Guides. A service by{" "}
+              <a
+                href={contactInfo.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-google-blue hover:underline"
+              >
+                {contactInfo.company}
+              </a>
+              , a digital marketing agency with offices in France and Canada.
             </p>
             <div className="mt-4 space-y-2">
               <a
@@ -33,6 +42,19 @@ export function Footer() {
                 <Mail className="h-4 w-4" />
                 {contactInfo.email}
               </a>
+              <a
+                href={contactInfo.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-sm text-text-secondary hover:text-google-blue"
+              >
+                <Globe className="h-4 w-4" />
+                lannkin.com
+              </a>
+              <div className="flex items-start gap-2 text-sm text-text-secondary">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
+                <span>{contactInfo.companyAddress}</span>
+              </div>
             </div>
           </div>
 
@@ -62,10 +84,16 @@ export function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-border">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-6 sm:flex-row sm:px-6 lg:px-8">
-          <p className="text-sm text-text-secondary">
-            &copy; {new Date().getFullYear()} BuyReviewsInNigeria.com. All
-            rights reserved.
-          </p>
+          <div className="text-center text-sm text-text-secondary sm:text-left">
+            <p>
+              &copy; {new Date().getFullYear()} BuyReviewsInNigeria.com. All
+              rights reserved.
+            </p>
+            <p className="mt-1 text-xs text-text-secondary/70">
+              {contactInfo.company} &middot; NEQ: {contactInfo.neq} &middot;{" "}
+              {contactInfo.companyAddress}
+            </p>
+          </div>
           <div className="flex flex-wrap items-center gap-4">
             {footerBottomLinks.map((link) => (
               <Link

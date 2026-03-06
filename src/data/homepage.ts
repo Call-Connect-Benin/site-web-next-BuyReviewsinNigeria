@@ -363,7 +363,7 @@ export const pricingPreviewData = {
         "30-day guarantee",
       ],
       isPopular: false,
-      href: "/get-started/",
+      href: "https://buy.stripe.com/9B6fZig6r1mg4eegUL6wE36",
     },
     {
       name: "Growth",
@@ -378,7 +378,7 @@ export const pricingPreviewData = {
         "GMB optimization included",
       ],
       isPopular: true,
-      href: "/get-started/",
+      href: "https://buy.stripe.com/9B100k1bx5CwcKK33V6wE37",
     },
     {
       name: "Enterprise",
@@ -394,7 +394,7 @@ export const pricingPreviewData = {
         "Weekly reports",
       ],
       isPopular: false,
-      href: "/get-started/",
+      href: "https://buy.stripe.com/cNicN6aM77KE4ee5c36wE38",
     },
   ] satisfies PricingPreviewData[],
 };
@@ -478,6 +478,6 @@ export const ctaFinalData = {
     label: "View Pricing",
     href: "/pricing/",
   },
-  phone: "+234-XXX-XXX-XXXX",
+  phone: "+2347085888855",
   phoneLabel: "Or call us directly",
 };

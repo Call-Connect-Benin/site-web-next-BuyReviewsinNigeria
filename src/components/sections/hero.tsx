@@ -10,6 +10,18 @@ import { getColorForIndex } from "@/lib/colors";
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-white pb-12 pt-20 sm:pb-16 sm:pt-24">
+      {/* Subtle background image */}
+      <div className="pointer-events-none absolute inset-0">
+        <Image
+          src="/images/hero-nigerian-professionals.jpeg"
+          alt=""
+          fill
+          className="object-contain object-left opacity-[0.14]"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/40 via-white/20 to-white/80" />
+      </div>
+
       {/* Dot grid pattern */}
       <div className="pointer-events-none absolute inset-0 dot-pattern-light" />
 
@@ -106,16 +118,6 @@ export function Hero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <div className="mb-4 overflow-hidden rounded-2xl shadow-lg">
-              <Image
-                src="/images/hero-nigerian-professionals.jpeg"
-                alt="Nigerian professionals using smartphones"
-                width={480}
-                height={300}
-                className="h-48 w-full object-cover object-top"
-                priority
-              />
-            </div>
             <div className="glass-dark rounded-2xl p-6 shadow-xl ring-1 ring-white/50 sm:p-8">
               <h2 className="font-heading text-xl font-bold text-text-primary">
                 Get Your Free Quote

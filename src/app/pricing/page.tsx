@@ -115,8 +115,10 @@ export default function PricingPage() {
                       ))}
                     </ul>
 
-                    <Link
+                    <a
                       href={plan.ctaLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className={`mt-8 block rounded-lg py-3 text-center text-sm font-semibold transition-all ${
                         plan.isPopular
                           ? "bg-gradient-to-r from-google-blue to-google-blue/80 text-white hover:shadow-lg hover:shadow-google-blue/25"
@@ -124,7 +126,7 @@ export default function PricingPage() {
                       }`}
                     >
                       {plan.ctaText}
-                    </Link>
+                    </a>
                   </div>
                 );
               })}
