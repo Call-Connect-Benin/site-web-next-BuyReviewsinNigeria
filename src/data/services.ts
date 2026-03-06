@@ -802,6 +802,146 @@ export const services: Service[] = [
           },
         ],
       },
+      {
+        slug: "gmb-profile-creation",
+        name: "Google My Business Profile Creation",
+        metaTitle: "Google My Business Profile Creation Nigeria | Full Setup",
+        metaDescription:
+          "Professional Google My Business profile creation for Nigerian businesses. We handle everything from setup to verification. Get found on Google Maps.",
+        shortDescription:
+          "Complete Google My Business profile creation service for Nigerian businesses. From initial setup to full verification.",
+        longDescription:
+          "Getting your business on Google Maps starts with a properly created Google My Business (GMB) profile. Our profile creation service handles the entire process from start to finish, ensuring your business appears in local search results and Google Maps.\n\nWe research your industry and competitors to create an optimized profile from day one. This includes selecting the right business categories, writing a compelling business description, adding your services and products, setting accurate business hours, and uploading professional photos.\n\nFor Nigerian businesses, we understand the unique challenges of Google verification — from postal delivery issues to address format requirements. We guide you through the fastest verification method available for your business type and location, whether that is phone, email, postcard, or video verification.\n\nOnce your profile is live, we provide a detailed optimization report with recommendations for ongoing growth, including review strategy, posting schedule, and Q&A setup.",
+        keywords: [
+          "create google my business Nigeria",
+          "GMB profile creation Lagos",
+          "google business profile setup Nigeria",
+          "get on google maps Nigeria",
+          "create google listing Nigeria",
+          "google my business setup Abuja",
+          "new google business profile Nigeria",
+        ],
+        faq: [
+          {
+            question: "How long does it take to create a Google My Business profile?",
+            answer:
+              "Profile creation takes 1-2 business days. Verification can take an additional 5-14 days depending on the method used. Phone and email verification is instant when available.",
+          },
+          {
+            question: "What information do I need to provide?",
+            answer:
+              "We need your business name, physical address, phone number, business hours, a description of your services, and high-quality photos of your business (interior, exterior, team, products).",
+          },
+          {
+            question: "Can you create a GMB profile if I don't have a physical address?",
+            answer:
+              "Yes. Service-area businesses (like plumbers, electricians, or delivery services) can create a GMB profile without displaying a physical address. We set up your service area correctly.",
+          },
+          {
+            question: "What if a listing already exists for my business?",
+            answer:
+              "If a listing already exists, we help you claim it instead. If it belongs to a previous owner, we handle the ownership recovery process. See our GMB Ownership Recovery service.",
+          },
+          {
+            question: "Do you help with Google Maps pin placement?",
+            answer:
+              "Yes. We ensure your pin is placed accurately on Google Maps at your exact business location. Incorrect pin placement can send customers to the wrong address.",
+          },
+        ],
+      },
+      {
+        slug: "gmb-profile-deletion",
+        name: "Google My Business Profile Deletion",
+        metaTitle: "Delete Google My Business Profile Nigeria | GMB Removal",
+        metaDescription:
+          "Professional Google My Business profile deletion for Nigerian businesses. Remove duplicate, outdated, or unwanted listings from Google Maps.",
+        shortDescription:
+          "Remove duplicate, outdated, or unwanted Google Business Profiles from Google Maps through proper channels.",
+        longDescription:
+          "Duplicate or outdated Google Business Profiles can confuse customers, dilute your reviews, and harm your local search ranking. Our GMB profile deletion service properly removes unwanted listings through official Google channels.\n\nCommon situations where profile deletion is needed include: duplicate listings created by mistake, old business locations that no longer exist, profiles for businesses that have permanently closed, listings created by unauthorized third parties, or merging multiple profiles into one.\n\nOur team works directly with Google support to ensure the deletion is handled correctly. Improper deletion attempts can result in losing reviews or creating orphaned listings that are difficult to remove later.\n\nFor Nigerian businesses dealing with multiple duplicate profiles — a common issue when businesses move locations or change names — we provide a comprehensive cleanup that consolidates your online presence into a single, authoritative listing.",
+        keywords: [
+          "delete google my business Nigeria",
+          "remove GMB profile Lagos",
+          "delete google listing Nigeria",
+          "remove duplicate google business",
+          "GMB deletion service Nigeria",
+          "close google business profile Nigeria",
+        ],
+        faq: [
+          {
+            question: "Why would I want to delete a Google Business Profile?",
+            answer:
+              "Common reasons include duplicate listings, old locations that no longer exist, profiles created by someone else, or consolidating multiple profiles after a business merger or name change.",
+          },
+          {
+            question: "Will I lose my reviews if I delete a profile?",
+            answer:
+              "Yes, deleting a profile permanently removes all associated reviews. If you want to keep reviews, we can explore alternatives like merging listings or updating the existing profile instead.",
+          },
+          {
+            question: "Can I delete a profile I don't own?",
+            answer:
+              "You can request removal of profiles that violate Google's policies (fake businesses, closed locations). For profiles you previously owned, we help with the ownership recovery process first.",
+          },
+          {
+            question: "How long does GMB deletion take?",
+            answer:
+              "Simple deletions (profiles you own) take 1-3 business days. Requesting removal of profiles you don't own can take 1-4 weeks depending on Google's review process.",
+          },
+          {
+            question: "What about duplicate listings from my old address?",
+            answer:
+              "We handle this by either deleting the old listing or marking it as permanently closed and redirecting to your new profile. We recommend the approach that preserves the most review equity.",
+          },
+        ],
+      },
+      {
+        slug: "gmb-ownership-recovery",
+        name: "Google My Business Ownership Recovery",
+        metaTitle: "Recover GMB Ownership Nigeria | Get Your Profile Back",
+        metaDescription:
+          "Recover ownership of your Google My Business profile in Nigeria. Expert help when access is lost, stolen, or transferred without authorization.",
+        shortDescription:
+          "Recover ownership of your Google Business Profile when access has been lost, stolen, or transferred without your consent.",
+        longDescription:
+          "Losing access to your Google Business Profile is a serious issue for any Nigerian business. Whether a former employee took the profile with them, an agency won't hand over access, or you simply lost your login credentials, our ownership recovery service gets you back in control.\n\nWe handle the entire recovery process through Google's official ownership transfer and appeal channels. This includes preparing documentation to prove business ownership, submitting ownership requests through Google's verification system, and following up with Google support until the transfer is complete.\n\nCommon scenarios we help with include: former employees or partners who retained access after leaving, marketing agencies that created the profile and won't release it, previous business owners who didn't transfer the profile during a sale, and accounts locked due to lost credentials or disabled Google accounts.\n\nFor Nigerian businesses, we have deep experience navigating Google's support channels and documentation requirements. We know which proof of ownership documents Google accepts and how to present your case effectively for the fastest resolution.",
+        keywords: [
+          "recover GMB ownership Nigeria",
+          "google business profile recovery Lagos",
+          "lost GMB access Nigeria",
+          "GMB ownership transfer Nigeria",
+          "claim google business profile Nigeria",
+          "recover google listing Nigeria",
+          "stolen GMB profile Nigeria",
+        ],
+        faq: [
+          {
+            question: "Someone else controls my business listing. Can you help?",
+            answer:
+              "Yes. We handle ownership disputes through Google's official appeal process. We prepare the necessary documentation and submit a claim on your behalf.",
+          },
+          {
+            question: "What proof of ownership does Google require?",
+            answer:
+              "Google typically accepts business registration documents (CAC certificate for Nigerian businesses), utility bills, bank statements, or other official documents showing your business name and address.",
+          },
+          {
+            question: "How long does ownership recovery take?",
+            answer:
+              "The process typically takes 1-3 weeks. If the current owner doesn't respond to Google's transfer request within 7 days, ownership is automatically transferred to you.",
+          },
+          {
+            question: "My former agency won't release my GMB profile. What can I do?",
+            answer:
+              "This is a very common issue. We submit a formal ownership claim to Google with your business documentation. Google will contact the current manager and transfer ownership if they don't respond.",
+          },
+          {
+            question: "Will I lose any reviews or data during the transfer?",
+            answer:
+              "No. Ownership transfer preserves all reviews, photos, posts, and profile data. Nothing is lost during the recovery process.",
+          },
+        ],
+      },
     ],
   },
   {

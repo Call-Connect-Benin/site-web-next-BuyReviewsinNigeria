@@ -9,7 +9,7 @@ import { CheckCircle } from "@/components/icons";
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Transparent pricing for Google Reviews in Nigeria. Starting at ₦25,000 for 5 reviews. No hidden fees. 30-day retention guarantee.",
+    "Transparent monthly pricing for Google Reviews in Nigeria. Starting at ₦150,000 for 30 reviews/month. No hidden fees. 30-day retention guarantee.",
   alternates: { canonical: "https://buyreviewsinnigeria.com/pricing/" },
 };
 
@@ -54,8 +54,8 @@ export default function PricingPage() {
               Simple, <span className="gradient-text-blue">Transparent</span> Pricing
             </h1>
             <p className="mt-6 text-lg text-text-secondary">
-              No hidden fees. No monthly commitments. Pay once, get authentic
-              Google Reviews from certified Local Guides.
+              Monthly subscription plans for consistent reputation growth.
+              Authentic Google Reviews from certified Local Guides, delivered every month.
             </p>
           </div>
         </section>
@@ -63,10 +63,9 @@ export default function PricingPage() {
         {/* Plans */}
         <section className="py-20">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
-            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
               {pricingPlans.map((plan, index) => {
-                const isFirst = index === 0;
-                const isLast = index === pricingPlans.length - 1;
+                const color = getColorForIndex(index);
 
                 return (
                   <div
@@ -74,11 +73,7 @@ export default function PricingPage() {
                     className={`relative flex flex-col rounded-xl border-2 bg-white p-8 hover:-translate-y-1 transition-all duration-300 ${
                       plan.isPopular
                         ? "border-google-blue shadow-lg"
-                        : isFirst
-                          ? "border-border border-t-2 border-t-google-green/30 shadow-sm"
-                          : isLast
-                            ? "border-border border-t-2 border-t-google-yellow/30 shadow-sm"
-                            : "border-border shadow-sm"
+                        : `border-border border-t-4 ${color.borderTop} shadow-sm`
                     }`}
                   >
                     {plan.isPopular && (
@@ -96,15 +91,10 @@ export default function PricingPage() {
                       {plan.name}
                     </h2>
                     <div className="mt-4 flex items-baseline gap-1">
-                      {plan.price === "Custom" ? (
-                        <span className="font-heading text-3xl font-bold text-text-primary">
-                          Custom
-                        </span>
-                      ) : (
-                        <span className="font-heading text-3xl font-bold text-text-primary">
-                          &#8358;{plan.price}
-                        </span>
-                      )}
+                      <span className="font-heading text-3xl font-bold text-text-primary">
+                        &#8358;{plan.price}
+                      </span>
+                      <span className="text-sm text-text-secondary">/mo</span>
                     </div>
                     <p className="mt-1 text-sm text-text-secondary">
                       {plan.unit}

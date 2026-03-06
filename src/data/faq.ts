@@ -165,7 +165,7 @@ export const faqCategories: FaqCategory[] = [
       {
         question: "Can you help optimize my Google My Business profile?",
         answer:
-          "Absolutely. Our <a href='/services/gmb-optimization/'>GMB Optimization</a> service covers profile setup, photos, posts, Q&A management, categories, and more. A fully optimized GMB profile amplifies the impact of your reviews. See all <a href='/services/gmb-optimization/gmb-profile-setup/'>GMB sub-services</a> and <a href='/pricing/'>pricing</a>.",
+          "Absolutely. Our <a href='/services/gmb-optimization/'>GMB Optimization</a> service covers profile setup, photos, posts, Q&A management, categories, and more. We also offer <a href='/services/gmb-optimization/gmb-profile-creation/'>GMB Profile Creation</a> from scratch and <a href='/services/gmb-optimization/gmb-ownership-recovery/'>ownership recovery</a> if you have lost access. See <a href='/pricing/'>pricing</a>.",
       },
       {
         question: "How do Google reviews affect my local search ranking?",
@@ -302,7 +302,7 @@ export const faqCategories: FaqCategory[] = [
       {
         question: "What is GMB Optimization and do I need it?",
         answer:
-          "Our <a href='/services/gmb-optimization/'>GMB Optimization</a> service ensures your Google Business Profile is fully optimized with the right categories, attributes, photos, posts, and Q&A. A well-optimized GMB profile significantly amplifies the impact of your reviews. See <a href='/services/gmb-optimization/gmb-profile-setup/'>GMB Profile Setup</a> and <a href='/pricing/'>pricing</a>.",
+          "Our <a href='/services/gmb-optimization/'>GMB Optimization</a> service ensures your Google Business Profile is fully optimized with the right categories, attributes, photos, posts, and Q&A. Need a new profile? See <a href='/services/gmb-optimization/gmb-profile-creation/'>GMB Profile Creation</a>. Lost access? Try our <a href='/services/gmb-optimization/gmb-ownership-recovery/'>GMB Ownership Recovery</a>. Want to remove a duplicate? See <a href='/services/gmb-optimization/gmb-profile-deletion/'>GMB Profile Deletion</a>.",
       },
       {
         question: "What does your reputation management service include?",

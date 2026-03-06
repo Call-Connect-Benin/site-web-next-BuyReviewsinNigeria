@@ -72,6 +72,18 @@ export const mainNavigation: NavItem[] = [
             icon: "GoogleLogo",
           },
           {
+            label: "GMB Profile Creation",
+            href: "/services/gmb-optimization/gmb-profile-creation/",
+            description: "Create your Google Business Profile",
+            icon: "Globe",
+          },
+          {
+            label: "GMB Ownership Recovery",
+            href: "/services/gmb-optimization/gmb-ownership-recovery/",
+            description: "Recover lost GMB profile access",
+            icon: "Key",
+          },
+          {
             label: "Reputation Management",
             href: "/services/reputation-management/",
             description: "Monitor and manage your online reputation",
@@ -284,6 +296,9 @@ export const footerColumns: FooterColumn[] = [
       { label: "Reputation Management", href: "/services/reputation-management/" },
       { label: "Negative Review Removal", href: "/services/negative-review-removal/" },
       { label: "Local SEO", href: "/services/local-seo/" },
+      { label: "GMB Profile Creation", href: "/services/gmb-optimization/gmb-profile-creation/" },
+      { label: "GMB Profile Deletion", href: "/services/gmb-optimization/gmb-profile-deletion/" },
+      { label: "GMB Ownership Recovery", href: "/services/gmb-optimization/gmb-ownership-recovery/" },
       { label: "GMB Profile Setup", href: "/services/gmb-optimization/gmb-profile-setup/" },
       { label: "GMB Photos Optimization", href: "/services/gmb-optimization/gmb-photos-optimization/" },
       { label: "Review Monitoring", href: "/services/reputation-management/review-monitoring/" },

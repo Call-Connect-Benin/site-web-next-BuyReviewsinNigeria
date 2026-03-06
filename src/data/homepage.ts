@@ -139,7 +139,7 @@ export const howItWorksData = {
       step: 1,
       title: "Choose Your Plan",
       description:
-        "Select a review package that fits your business needs and budget. From 5 reviews (Starter) to 50+ (Enterprise).",
+        "Choose a monthly plan that fits your growth goals. From 30 reviews/month (Starter) to 90 reviews/month (Enterprise).",
       icon: "DollarSign" as IconName,
     },
     {
@@ -191,12 +191,20 @@ export const servicesData = {
       features: ["Verified reviewers", "B2B and B2C", "E-commerce focus"],
     },
     {
+      title: "GMB Profile Creation",
+      description:
+        "Get your Google Business Profile created from scratch with full optimization and verification support.",
+      href: "/services/gmb-optimization/gmb-profile-creation/",
+      icon: "Globe" as IconName,
+      features: ["Full profile setup", "Google verification", "Maps placement"],
+    },
+    {
       title: "GMB Optimization",
       description:
         "Fully optimize your Google Business Profile to maximize visibility in local search and Google Maps.",
       href: "/services/gmb-optimization/",
       icon: "GoogleLogo" as IconName,
-      features: ["Profile setup", "Photos & posts", "Category optimization"],
+      features: ["Photos & posts", "Category optimization", "Ownership recovery"],
     },
     {
       title: "Reputation Management",
@@ -340,18 +348,18 @@ export const testimonialsData = {
 
 export const pricingPreviewData = {
   title: "Simple, Transparent Pricing",
-  subtitle: "No hidden fees. Pay once, get results.",
+  subtitle: "Monthly subscription plans for consistent reputation growth.",
   viewAllHref: "/pricing/",
   plans: [
     {
       name: "Starter",
-      price: "25,000",
-      unit: "5 Reviews",
+      price: "150,000",
+      unit: "30 reviews/month",
       features: [
-        "5 Google reviews",
+        "30 reviews/month minimum",
         "Certified Local Guides",
         "Custom content",
-        "2-week delivery",
+        "Natural delivery pacing",
         "30-day guarantee",
       ],
       isPopular: false,
@@ -359,31 +367,31 @@ export const pricingPreviewData = {
     },
     {
       name: "Growth",
-      price: "65,000",
-      unit: "15 Reviews",
+      price: "275,000",
+      unit: "60 reviews/month",
       features: [
-        "15 Google reviews",
+        "60 reviews/month minimum",
         "Certified Local Guides",
         "Custom content per reviewer",
-        "4-6 week delivery",
+        "Strategic scheduling",
         "30-day guarantee",
-        "GMB quick audit",
+        "GMB optimization included",
       ],
       isPopular: true,
       href: "/get-started/",
     },
     {
-      name: "Business",
-      price: "120,000",
-      unit: "30 Reviews",
+      name: "Enterprise",
+      price: "400,000",
+      unit: "90 reviews/month",
       features: [
-        "30 Google reviews",
+        "90 reviews/month minimum",
         "Certified Local Guides",
-        "Fully customized content",
-        "8-12 week delivery",
+        "Full review strategy",
+        "Priority scheduling",
         "30-day guarantee",
-        "Full GMB audit",
-        "Monthly report",
+        "Full GMB management",
+        "Weekly reports",
       ],
       isPopular: false,
       href: "/get-started/",
