@@ -40,6 +40,11 @@ export function LocationsSection() {
                       {city.name}
                     </h3>
                   </div>
+                  {city.tagline && (
+                    <p className="mt-2 text-xs leading-snug text-text-secondary">
+                      {city.tagline}
+                    </p>
+                  )}
                   <div className="mt-4 flex items-center gap-3">
                     <span className="inline-flex items-center gap-1.5 rounded-full bg-google-green/8 px-2.5 py-1 text-xs font-medium text-google-green">
                       <Users className="h-3 w-3" />

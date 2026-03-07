@@ -340,17 +340,24 @@ export function getFaqByCategory(slug: string): FaqItem[] {
   return faqCategories.find((cat) => cat.slug === slug)?.questions ?? [];
 }
 
-/** Get a subset of FAQ items for a specific page (e.g., homepage shows 8) */
+/** Get a subset of FAQ items for a specific page (e.g., homepage shows 15) */
 export function getHomepageFaq(): FaqItem[] {
   return [
     faqCategories[0]!.questions[0]!, // What is BuyReviewsInNigeria?
+    faqCategories[0]!.questions[1]!, // Is buying Google reviews legal?
     faqCategories[0]!.questions[2]!, // How is it different from fake reviews?
+    faqCategories[0]!.questions[3]!, // What cities do you cover?
     faqCategories[1]!.questions[0]!, // How much do reviews cost?
     faqCategories[2]!.questions[0]!, // How does the process work?
     faqCategories[2]!.questions[1]!, // How long does it take?
+    faqCategories[2]!.questions[3]!, // Will the reviews look natural?
+    faqCategories[2]!.questions[6]!, // Do the reviewers actually visit?
     faqCategories[3]!.questions[0]!, // What is a Local Guide?
+    faqCategories[3]!.questions[3]!, // How do reviews affect local ranking?
     faqCategories[4]!.questions[0]!, // Are reviews authentic?
+    faqCategories[4]!.questions[1]!, // Will my account get suspended?
     faqCategories[4]!.questions[5]!, // Do you have a retention guarantee?
+    faqCategories[5]!.questions[0]!, // How do reviews help restaurants?
   ];
 }
 

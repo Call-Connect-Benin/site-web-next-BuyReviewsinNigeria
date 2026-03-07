@@ -3,33 +3,38 @@ import {
   Hero,
   TrustBar,
   HowItWorks,
+  AuthenticReviewsExplainer,
   ServicesSection,
   IndustriesSection,
   LocationsSection,
   TestimonialsSection,
+  WhyReviewsMatter,
   PricingPreview,
   FAQSection,
   CTAFinal,
 } from "@/components/sections";
+import { getHomepageFaq } from "@/data/faq";
 
 export const metadata: Metadata = {
   title:
-    "Buy Google Reviews in Nigeria | Certified Local Guides | BuyReviewsInNigeria",
+    "Buy Google Reviews in Nigeria | Authentic Reviews from Certified Local Guides | BuyReviewsInNigeria",
   description:
-    "Get authentic Google Reviews from 500+ certified Local Guides (Level 4+) across 15 Nigerian cities. Real reviewers, real visits, real results. Starting at ₦25,000.",
+    "Buy authentic Google Reviews in Nigeria from 500+ certified Local Guides (Level 4+) who physically visit your business. Boost your Google Maps ranking, attract more customers, and build trust. 15 cities, 25+ industries, 95% retention rate.",
   alternates: {
     canonical: "https://buyreviewsinnigeria.com/",
   },
   openGraph: {
     title: "Buy Google Reviews in Nigeria | Certified Local Guides",
     description:
-      "Get authentic Google Reviews from 500+ certified Local Guides across Nigeria. Real people, real accounts, real reviews.",
+      "Get authentic Google Reviews from 500+ certified Local Guides across Nigeria. Real people, real accounts, real reviews. Boost your Local Pack ranking today.",
     url: "https://buyreviewsinnigeria.com/",
     type: "website",
   },
 };
 
 export default function HomePage() {
+  const faqItems = getHomepageFaq();
+
   const jsonLd = [
     {
       "@context": "https://schema.org",
@@ -59,7 +64,49 @@ export default function HomePage() {
         addressLocality: "Lagos",
         addressCountry: "NG",
       },
-      priceRange: "₦25,000 - ₦120,000+",
+      priceRange: "₦150,000 - ₦400,000/month",
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "4.8",
+        reviewCount: "500",
+        bestRating: "5",
+      },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      name: "Google Review Collection Service",
+      description:
+        "Authentic Google Reviews from certified Local Guides in Nigeria. Real visits, real reviews, 95%+ retention rate.",
+      brand: {
+        "@type": "Brand",
+        name: "BuyReviewsInNigeria",
+      },
+      offers: {
+        "@type": "AggregateOffer",
+        priceCurrency: "NGN",
+        lowPrice: "150000",
+        highPrice: "400000",
+        offerCount: "3",
+      },
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "4.8",
+        reviewCount: "500",
+        bestRating: "5",
+      },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqItems.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer.replace(/<[^>]*>/g, ""),
+        },
+      })),
     },
   ];
 
@@ -73,10 +120,12 @@ export default function HomePage() {
         <Hero />
         <TrustBar />
         <HowItWorks />
+        <AuthenticReviewsExplainer />
         <ServicesSection />
         <IndustriesSection />
         <LocationsSection />
         <TestimonialsSection />
+        <WhyReviewsMatter />
         <PricingPreview />
         <FAQSection />
         <CTAFinal />

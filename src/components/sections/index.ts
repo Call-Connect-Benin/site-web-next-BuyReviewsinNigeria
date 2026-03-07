@@ -1,10 +1,12 @@
 export { Hero } from "./hero";
 export { TrustBar } from "./trust-bar";
 export { HowItWorks } from "./how-it-works";
+export { AuthenticReviewsExplainer } from "./authentic-reviews-explainer";
 export { ServicesSection } from "./services-section";
 export { IndustriesSection } from "./industries-section";
 export { LocationsSection } from "./locations-section";
 export { TestimonialsSection } from "./testimonials-section";
+export { WhyReviewsMatter } from "./why-reviews-matter";
 export { PricingPreview } from "./pricing-preview";
 export { PlatformsSection } from "./platforms-section";
 export { FAQSection } from "./faq-section";

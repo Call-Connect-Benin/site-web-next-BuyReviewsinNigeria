@@ -47,6 +47,11 @@ export function IndustriesSection() {
                   <p className="mt-1 text-xs text-text-secondary">
                     {industry.reviewCount} reviews
                   </p>
+                  {industry.shortDescription && (
+                    <p className="mt-1.5 text-xs leading-snug text-text-secondary/80 hidden sm:block">
+                      {industry.shortDescription}
+                    </p>
+                  )}
                 </Link>
               </motion.div>
             );

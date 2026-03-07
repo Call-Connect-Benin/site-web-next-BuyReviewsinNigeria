@@ -42,6 +42,7 @@ export interface IndustryCardData {
   slug: string;
   icon: IconName;
   reviewCount: string;
+  shortDescription?: string;
 }
 
 export interface LocationCardData {
@@ -49,6 +50,7 @@ export interface LocationCardData {
   slug: string;
   localGuides: number;
   neighborhoods: number;
+  tagline?: string;
 }
 
 export interface TestimonialData {
@@ -91,7 +93,7 @@ export const heroData: HeroData = {
   headline: "Buy Authentic Google Reviews in Nigeria",
   subheadline: "From Certified Local Guides",
   description:
-    "Boost your business reputation with genuine Google reviews from our network of 500+ certified Local Guides across 15 Nigerian cities. Real reviewers. Real visits. Real results.",
+    "Boost your business reputation with genuine Google reviews from our network of 500+ certified Local Guides across 15 Nigerian cities. Buy Google reviews that are written by real people who physically visit your business. Improve your Google Maps ranking, attract more customers, and build lasting trust. Real reviewers. Real visits. Real results.",
   ctaPrimary: {
     label: "Get Started Today",
     href: "/get-started/",
@@ -242,18 +244,18 @@ export const industriesData = {
   subtitle: "Tailored review solutions for 25+ Nigerian industries",
   viewAllHref: "/industries/",
   industries: [
-    { name: "Restaurants", slug: "restaurants", icon: "ShoppingCart" as IconName, reviewCount: "2,500+" },
-    { name: "Hotels", slug: "hotels", icon: "Building" as IconName, reviewCount: "1,800+" },
-    { name: "Hospitals & Clinics", slug: "hospitals-clinics", icon: "Heart" as IconName, reviewCount: "1,200+" },
-    { name: "Car Dealerships", slug: "car-dealerships", icon: "Car" as IconName, reviewCount: "900+" },
-    { name: "Lawyers", slug: "lawyers", icon: "Scale" as IconName, reviewCount: "750+" },
-    { name: "Real Estate", slug: "real-estate-agents", icon: "Key" as IconName, reviewCount: "600+" },
-    { name: "Dentists", slug: "dentists", icon: "Smile" as IconName, reviewCount: "500+" },
-    { name: "Salons", slug: "salons-barbershops", icon: "Scissors" as IconName, reviewCount: "1,100+" },
-    { name: "Tech Companies", slug: "tech-companies", icon: "Monitor" as IconName, reviewCount: "400+" },
-    { name: "Gyms & Fitness", slug: "gyms-fitness", icon: "Dumbbell" as IconName, reviewCount: "350+" },
-    { name: "Schools", slug: "schools-universities", icon: "GraduationCap" as IconName, reviewCount: "300+" },
-    { name: "Construction", slug: "construction", icon: "HardHat" as IconName, reviewCount: "250+" },
+    { name: "Restaurants", slug: "restaurants", icon: "ShoppingCart" as IconName, reviewCount: "2,500+", shortDescription: "Boost foot traffic with reviews mentioning dishes, ambiance, and service quality" },
+    { name: "Hotels", slug: "hotels", icon: "Building" as IconName, reviewCount: "1,800+", shortDescription: "Increase direct bookings with reviews highlighting rooms, facilities, and hospitality" },
+    { name: "Hospitals & Clinics", slug: "hospitals-clinics", icon: "Heart" as IconName, reviewCount: "1,200+", shortDescription: "Build patient trust with reviews about care quality and medical expertise" },
+    { name: "Car Dealerships", slug: "car-dealerships", icon: "Car" as IconName, reviewCount: "900+", shortDescription: "Drive showroom visits with reviews covering vehicle selection and sales experience" },
+    { name: "Lawyers", slug: "lawyers", icon: "Scale" as IconName, reviewCount: "750+", shortDescription: "Attract new clients with reviews emphasizing professionalism and legal outcomes" },
+    { name: "Real Estate", slug: "real-estate-agents", icon: "Key" as IconName, reviewCount: "600+", shortDescription: "Win more listings with reviews about market knowledge and client service" },
+    { name: "Dentists", slug: "dentists", icon: "Smile" as IconName, reviewCount: "500+", shortDescription: "Grow your practice with reviews about gentle care and treatment results" },
+    { name: "Salons", slug: "salons-barbershops", icon: "Scissors" as IconName, reviewCount: "1,100+", shortDescription: "Fill appointment slots with reviews praising styles, skill, and atmosphere" },
+    { name: "Tech Companies", slug: "tech-companies", icon: "Monitor" as IconName, reviewCount: "400+", shortDescription: "Build B2B credibility with reviews on project delivery and technical expertise" },
+    { name: "Gyms & Fitness", slug: "gyms-fitness", icon: "Dumbbell" as IconName, reviewCount: "350+", shortDescription: "Increase memberships with reviews about equipment, trainers, and results" },
+    { name: "Schools", slug: "schools-universities", icon: "GraduationCap" as IconName, reviewCount: "300+", shortDescription: "Boost enrollment with reviews on teaching quality and student outcomes" },
+    { name: "Construction", slug: "construction", icon: "HardHat" as IconName, reviewCount: "250+", shortDescription: "Win more contracts with reviews highlighting craftsmanship and reliability" },
   ] satisfies IndustryCardData[],
 };
 
@@ -266,14 +268,14 @@ export const locationsData = {
   subtitle: "15 cities. 93+ neighborhoods. 500+ Local Guides across Nigeria.",
   viewAllHref: "/locations/",
   cities: [
-    { name: "Lagos", slug: "lagos", localGuides: 180, neighborhoods: 18 },
-    { name: "Abuja", slug: "abuja", localGuides: 120, neighborhoods: 15 },
-    { name: "Port Harcourt", slug: "port-harcourt", localGuides: 65, neighborhoods: 8 },
-    { name: "Ibadan", slug: "ibadan", localGuides: 40, neighborhoods: 6 },
-    { name: "Kano", slug: "kano", localGuides: 30, neighborhoods: 5 },
-    { name: "Kaduna", slug: "kaduna", localGuides: 25, neighborhoods: 5 },
-    { name: "Benin City", slug: "benin-city", localGuides: 20, neighborhoods: 5 },
-    { name: "Enugu", slug: "enugu", localGuides: 18, neighborhoods: 5 },
+    { name: "Lagos", slug: "lagos", localGuides: 180, neighborhoods: 18, tagline: "Nigeria's commercial capital and our largest service area" },
+    { name: "Abuja", slug: "abuja", localGuides: 120, neighborhoods: 15, tagline: "Federal Capital Territory with strong demand from government-adjacent businesses" },
+    { name: "Port Harcourt", slug: "port-harcourt", localGuides: 65, neighborhoods: 8, tagline: "Oil-and-gas hub with a thriving hospitality and services sector" },
+    { name: "Ibadan", slug: "ibadan", localGuides: 40, neighborhoods: 6, tagline: "South-West's largest city with growing small business ecosystem" },
+    { name: "Kano", slug: "kano", localGuides: 30, neighborhoods: 5, tagline: "Northern Nigeria's commercial centre and trade gateway" },
+    { name: "Kaduna", slug: "kaduna", localGuides: 25, neighborhoods: 5, tagline: "Industrial hub with expanding retail and hospitality industries" },
+    { name: "Benin City", slug: "benin-city", localGuides: 20, neighborhoods: 5, tagline: "Historic city with a rising entrepreneurial scene" },
+    { name: "Enugu", slug: "enugu", localGuides: 18, neighborhoods: 5, tagline: "Coal City's booming tech and education sector" },
   ] satisfies LocationCardData[],
 };
 
@@ -480,4 +482,137 @@ export const ctaFinalData = {
   },
   phone: "+2347085888855",
   phoneLabel: "Or call us directly",
+};
+
+// ══════════════════════════════════════════════
+// 13. AUTHENTIC REVIEWS EXPLAINER
+// ══════════════════════════════════════════════
+
+export const authenticReviewsData = {
+  title: "100% Legitimate Google Reviews — Here's Why",
+  intro:
+    "Unlike review farms that use bots or fake accounts, BuyReviewsInNigeria connects your business with real Google Local Guides — members of Google's own community contributor programme. Every review we deliver comes from a verified, active Google account with an established review history. Our Local Guides physically visit your business, experience your service, and write honest, personalised reviews that reflect a genuine customer interaction.",
+  localGuideLevels: [
+    {
+      level: "Level 4",
+      description: "200+ points, trusted contributor status, reviews carry algorithmic weight",
+      color: "blue" as const,
+    },
+    {
+      level: "Level 5",
+      description: "500+ points, experienced reviewer, established profile with photos and edits",
+      color: "green" as const,
+    },
+    {
+      level: "Level 6+",
+      description: "1,500+ points, elite contributor, highest trust signal on Google Maps",
+      color: "yellow" as const,
+    },
+  ],
+  comparisonTable: [
+    {
+      aspect: "Reviewer Identity",
+      fake: "Anonymous bots or purchased accounts",
+      ours: "Certified Google Local Guides with real profiles",
+    },
+    {
+      aspect: "Account History",
+      fake: "New accounts with zero activity",
+      ours: "Established accounts with 50-500+ prior reviews",
+    },
+    {
+      aspect: "Business Interaction",
+      fake: "No visit, generic text copied across businesses",
+      ours: "Physical visit or genuine service engagement",
+    },
+    {
+      aspect: "Review Content",
+      fake: "Templated, repetitive, and vague",
+      ours: "Unique, detailed, and specific to your business",
+    },
+    {
+      aspect: "Delivery Timing",
+      fake: "All posted within hours or days",
+      ours: "Spread naturally over 2-12 weeks",
+    },
+    {
+      aspect: "Google Compliance",
+      fake: "High removal rate, account suspensions common",
+      ours: "95%+ retention rate, fully compliant approach",
+    },
+  ],
+  benefits: [
+    {
+      icon: "Shield" as IconName,
+      title: "Google-Compliant Process",
+      description: "Our approach aligns with Google's guidelines. Reviews come from real people sharing real experiences.",
+    },
+    {
+      icon: "Users" as IconName,
+      title: "500+ Verified Local Guides",
+      description: "Every reviewer in our network is a certified Google Local Guide with Level 4 status or higher.",
+    },
+    {
+      icon: "MapPin" as IconName,
+      title: "Physical Business Visits",
+      description: "For brick-and-mortar businesses, our Local Guides visit in person before writing their review.",
+    },
+    {
+      icon: "Clock" as IconName,
+      title: "Natural Delivery Pacing",
+      description: "Reviews are posted gradually over weeks, mimicking organic growth patterns that Google expects.",
+    },
+    {
+      icon: "CheckCircle" as IconName,
+      title: "95%+ Retention Rate",
+      description: "Because our reviews are genuine, over 95% remain live permanently — backed by our 30-day guarantee.",
+    },
+    {
+      icon: "Award" as IconName,
+      title: "Personalised Review Content",
+      description: "Each review is unique, mentioning specific products, staff, or experiences relevant to your business.",
+    },
+  ],
+  closingText:
+    "When you buy Google reviews from BuyReviewsInNigeria, you are investing in real customer engagement — not gaming the system. Our Local Guides are real people who live in your city, visit your business, and share their honest experience with the world.",
+};
+
+// ══════════════════════════════════════════════
+// 14. WHY REVIEWS MATTER
+// ══════════════════════════════════════════════
+
+export const whyReviewsMatterData = {
+  title: "Why Google Reviews Matter for Nigerian Businesses",
+  paragraphs: [
+    {
+      heading: "Google Reviews Drive Local Pack Rankings",
+      text: "When a potential customer searches for \"best restaurant near me\" or \"lawyer in Lagos,\" Google displays three businesses in the Local Pack — the map-based results at the top of the page. <strong>Review quantity, rating, and recency are among the top ranking factors</strong> that determine which businesses appear in this prime position. Businesses with more positive Google reviews consistently outrank competitors with fewer reviews, meaning every review you collect directly improves your visibility on Google Maps and Google Search.",
+    },
+    {
+      heading: "Consumers Trust Online Reviews as Much as Personal Recommendations",
+      text: "Research shows that <strong>93% of consumers read online reviews</strong> before choosing a local business, and <strong>88% trust online reviews as much as personal recommendations</strong> from friends and family. In Nigeria's competitive market, a business with 5 Google reviews is at a significant disadvantage compared to a competitor with 50+ reviews. By purchasing authentic Google reviews from certified Local Guides, you bridge this trust gap and give potential customers the social proof they need to choose your business.",
+    },
+    {
+      heading: "Digital Word-of-Mouth for Nigerian Businesses",
+      text: "In Nigeria, word-of-mouth has always been the most powerful form of marketing. Google reviews are the digital evolution of that tradition. A detailed, positive review from a certified Local Guide serves as a permanent recommendation visible to thousands of searchers every month. Unlike a verbal recommendation that reaches one person, a Google review can influence hundreds of purchasing decisions over its lifetime — making it one of the most cost-effective marketing investments available to Nigerian business owners.",
+    },
+    {
+      heading: "The Review Asymmetry Problem Our Service Solves",
+      text: "Most satisfied customers never leave a review — they simply enjoy the experience and move on. Meanwhile, unhappy customers are far more motivated to share their frustration online. This creates <strong>review asymmetry</strong>: your Google rating may not reflect the true quality of your business. BuyReviewsInNigeria solves this by connecting you with Local Guides who visit your business and share the positive experience that your regular customers rarely take the time to write about.",
+    },
+    {
+      heading: "Reviews Are the Foundation of All Digital Marketing",
+      text: "Whether you invest in Google Ads, social media marketing, or SEO, potential customers will check your Google reviews before making a decision. A low rating or few reviews undermines every other marketing effort. Authentic Google reviews from our Local Guide network provide <strong>the foundation that makes all your other marketing investments more effective</strong>. Businesses that maintain a strong review profile see higher click-through rates on ads, better conversion rates on landing pages, and stronger organic search performance across all channels.",
+    },
+  ],
+  stats: [
+    { value: "93%", label: "of consumers read reviews before buying", color: "blue" as const },
+    { value: "88%", label: "trust reviews as much as personal recommendations", color: "red" as const },
+    { value: "3.3x", label: "more likely to click a business with 4.5+ stars", color: "yellow" as const },
+    { value: "₦0", label: "additional cost per customer acquired via reviews", color: "green" as const },
+  ],
+  cta: {
+    primary: { label: "Start Building Your Reviews", href: "/get-started/" },
+    secondary: { label: "View Pricing Plans", href: "/pricing/" },
+  },
 };
