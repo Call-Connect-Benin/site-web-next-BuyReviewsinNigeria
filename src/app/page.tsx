@@ -118,6 +118,24 @@ export default function HomePage() {
       />
       <main>
         <Hero />
+
+        {/* Loom Presentation Video */}
+        <section className="bg-bg py-12 sm:py-16">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <h2 className="mb-8 text-center font-heading text-2xl font-bold text-text-primary sm:text-3xl">
+              See How It Works
+            </h2>
+            <div className="overflow-hidden rounded-2xl shadow-lg" style={{ position: "relative", paddingBottom: "64.98%", height: 0 }}>
+              <iframe
+                src="https://www.loom.com/embed/07d6d406731748b795f7ff96c105bc00"
+                allow="fullscreen"
+                className="absolute inset-0 h-full w-full border-0"
+                title="BuyReviewsInAfrica Presentation"
+              />
+            </div>
+          </div>
+        </section>
+
         <TrustBar />
         <HowItWorks />
         <AuthenticReviewsExplainer />
