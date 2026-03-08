@@ -17,16 +17,16 @@ import { getHomepageFaq } from "@/data/faq";
 
 export const metadata: Metadata = {
   title:
-    "Buy Google Reviews in Nigeria | Authentic Reviews from Certified Local Guides | BuyReviewsInNigeria",
+    "Buy Google Reviews in Nigeria ⭐ 500+ Certified Local Guides | BuyReviewsInNigeria",
   description:
-    "Buy authentic Google Reviews in Nigeria from 500+ certified Local Guides (Level 4+) who physically visit your business. Boost your Google Maps ranking, attract more customers, and build trust. 15 cities, 25+ industries, 95% retention rate.",
+    "🎁 5 FREE reviews with your first order! Buy authentic Google Reviews in Nigeria from 500+ certified Local Guides (Level 4+). ⭐ 4.9/5 rating · 15 cities · 25+ industries · 95% retention rate.",
   alternates: {
     canonical: "https://buyreviewsinnigeria.com/",
   },
   openGraph: {
-    title: "Buy Google Reviews in Nigeria | Certified Local Guides",
+    title: "⭐ Buy Google Reviews in Nigeria | 500+ Certified Local Guides",
     description:
-      "Get authentic Google Reviews from 500+ certified Local Guides across Nigeria. Real people, real accounts, real reviews. Boost your Local Pack ranking today.",
+      "🎁 Get 5 FREE Google Reviews with your first order! 500+ certified Local Guides across Nigeria. Real people, real accounts, real reviews.",
     url: "https://buyreviewsinnigeria.com/",
     type: "website",
   },
@@ -67,9 +67,10 @@ export default function HomePage() {
       priceRange: "₦150,000 - ₦400,000/month",
       aggregateRating: {
         "@type": "AggregateRating",
-        ratingValue: "4.8",
-        reviewCount: "500",
+        ratingValue: "4.9",
+        reviewCount: "650",
         bestRating: "5",
+        worstRating: "1",
       },
     },
     {
@@ -91,9 +92,10 @@ export default function HomePage() {
       },
       aggregateRating: {
         "@type": "AggregateRating",
-        ratingValue: "4.8",
-        reviewCount: "500",
+        ratingValue: "4.9",
+        reviewCount: "650",
         bestRating: "5",
+        worstRating: "1",
       },
     },
     {

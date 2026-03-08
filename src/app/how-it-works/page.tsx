@@ -7,9 +7,9 @@ import { CheckCircle } from "@/components/icons";
 import { getColorForIndex } from "@/lib/colors";
 
 export const metadata: Metadata = {
-  title: "How It Works",
+  title: "⚡ How It Works — 4 Simple Steps to More Reviews",
   description:
-    "Learn how BuyReviewsInNigeria collects authentic Google Reviews through certified Local Guides. Our 4-step process explained.",
+    "See how BuyReviewsInNigeria collects authentic Google Reviews in 4 easy steps. ✅ Certified Local Guides · Real visits · 95% retention rate. 🎁 5 free reviews!",
   alternates: { canonical: "https://buyreviewsinnigeria.com/how-it-works/" },
 };
 

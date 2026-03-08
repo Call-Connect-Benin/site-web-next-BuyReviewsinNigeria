@@ -6,8 +6,8 @@ import { faqCategories, TOTAL_FAQ_COUNT } from "@/data/faq";
 import { FaqAccordion } from "@/components/sections/faq-accordion";
 
 export const metadata: Metadata = {
-  title: "FAQ",
-  description: `Answers to ${TOTAL_FAQ_COUNT} frequently asked questions about buying Google Reviews in Nigeria. Pricing, process, safety, and more.`,
+  title: "❓ FAQ — Your Questions About Google Reviews Answered",
+  description: `Answers to ${TOTAL_FAQ_COUNT} frequently asked questions about buying Google Reviews in Nigeria. 💰 Pricing · ⚡ Process · 🔒 Safety · 📊 Results & more.`,
   alternates: { canonical: "https://buyreviewsinnigeria.com/faq/" },
 };
 

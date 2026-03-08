@@ -4,9 +4,9 @@ import { industries } from "@/data/industries";
 import { iconMap, ArrowRight } from "@/components/icons";
 
 export const metadata: Metadata = {
-  title: "Industries We Serve | Google Reviews for 25+ Industries in Nigeria",
+  title: "🏢 Industries We Serve — 25+ Industries Across Nigeria",
   description:
-    "We help businesses across 25+ industries in Nigeria collect authentic Google reviews from certified Local Guides. Restaurants, hotels, hospitals, lawyers, and more.",
+    "Google Reviews for 25+ industries in Nigeria! 🏥 Hospitals · 🍽️ Restaurants · 🏨 Hotels · ⚖️ Lawyers & more. ✅ Certified Local Guides. 🎁 5 free reviews!",
 };
 
 export default function IndustriesPage() {

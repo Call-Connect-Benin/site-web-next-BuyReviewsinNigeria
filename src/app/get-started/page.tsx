@@ -6,9 +6,9 @@ import { Shield, CheckCircle, Users, Star } from "@/components/icons";
 import { getColorForIndex } from "@/lib/colors";
 
 export const metadata: Metadata = {
-  title: "Get Started",
+  title: "🚀 Get Started — Claim Your 5 Free Google Reviews",
   description:
-    "Order authentic Google Reviews for your Nigerian business. Fill out our form to get started with certified Local Guides.",
+    "🎁 Get 5 FREE Google Reviews with your first order! Fill out our form and we'll contact you within 24h. ✅ Certified Local Guides · No credit card required.",
   alternates: { canonical: "https://buyreviewsinnigeria.com/get-started/" },
 };
 

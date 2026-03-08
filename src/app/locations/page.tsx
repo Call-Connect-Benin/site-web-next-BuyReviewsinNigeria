@@ -4,9 +4,9 @@ import { cities } from "@/data/locations/cities";
 import { MapPin, Users, Building, ArrowRight } from "@/components/icons";
 
 export const metadata: Metadata = {
-  title: "Buy Google Reviews in Nigeria | All 15 Cities Covered",
+  title: "📍 All 15 Cities — Buy Google Reviews Across Nigeria",
   description:
-    "We serve 15 major Nigerian cities and 95+ neighborhoods with certified Local Guides. Find verified review services in Lagos, Abuja, Port Harcourt, and more.",
+    "Google Reviews in 15 Nigerian cities & 95+ neighborhoods! 📍 Lagos · Abuja · Port Harcourt & more. ✅ Certified Local Guides. 🎁 5 free reviews with first order!",
   keywords: [
     "buy google reviews Nigeria",
     "google reviews Nigerian cities",

@@ -7,9 +7,9 @@ import { pricingPlans, additionalServices } from "@/data/pricing";
 import { CheckCircle } from "@/components/icons";
 
 export const metadata: Metadata = {
-  title: "Pricing",
+  title: "💰 Pricing — Google Reviews Packages from ₦150,000/mo",
   description:
-    "Transparent monthly pricing for Google Reviews in Nigeria. Starting at ₦150,000 for 30 reviews/month. No hidden fees. 30-day retention guarantee.",
+    "🎁 5 FREE reviews with first order! Transparent pricing for Google Reviews in Nigeria. Starting ₦150,000 for 30 reviews/month. ✅ No hidden fees · 30-day guarantee.",
   alternates: { canonical: "https://buyreviewsinnigeria.com/pricing/" },
 };
 

@@ -6,9 +6,9 @@ import { Phone, Mail, MapPin, Globe } from "@/components/icons";
 import { contactInfo } from "@/data/navigation";
 
 export const metadata: Metadata = {
-  title: "Contact Us",
+  title: "📞 Contact Us — Get a Free Quote Today",
   description:
-    "Get in touch with BuyReviewsInNigeria. Contact us for pricing, support, or partnership inquiries.",
+    "Get in touch with BuyReviewsInNigeria! 🎁 5 FREE Google Reviews with your first order. Contact us via WhatsApp, email, or phone. Response within 24h.",
   alternates: { canonical: "https://buyreviewsinnigeria.com/contact/" },
 };
 

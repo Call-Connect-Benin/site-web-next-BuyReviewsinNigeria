@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Logo } from "@/components/icons/logo";
 import { footerColumns, footerBottomLinks, contactInfo } from "@/data/navigation";
-import { Phone, Mail, Globe, MapPin } from "@/components/icons";
+import { Phone, Mail, Globe, MapPin, Star } from "@/components/icons";
 
 export function Footer() {
   return (
@@ -78,6 +78,23 @@ export function Footer() {
               </ul>
             </div>
           ))}
+        </div>
+      </div>
+
+      {/* Trust Badge */}
+      <div className="border-t border-border bg-gradient-to-r from-google-blue/5 via-transparent to-google-green/5">
+        <div className="mx-auto flex max-w-7xl items-center justify-center gap-3 px-4 py-4 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-0.5">
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} className="h-5 w-5" />
+            ))}
+          </div>
+          <p className="text-sm font-semibold text-text-primary">
+            4.9/5
+          </p>
+          <p className="text-sm text-text-secondary">
+            based on <span className="font-semibold text-text-primary">650+ reviews</span> from verified clients
+          </p>
         </div>
       </div>
 

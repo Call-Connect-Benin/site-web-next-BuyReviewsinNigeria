@@ -7,9 +7,9 @@ import { Breadcrumb } from "@/components/layout/breadcrumb";
 import { buildBreadcrumbs } from "@/lib/internal-links";
 
 export const metadata: Metadata = {
-  title: "Review Platforms | Google, Trustpilot & More",
+  title: "📊 Review Platforms — Google, Trustpilot, TripAdvisor & More",
   description:
-    "We help Nigerian businesses collect authentic reviews on Google, Trustpilot, Google My Business, and TripAdvisor. Learn about each platform and how we can help.",
+    "We help Nigerian businesses collect authentic reviews on Google, Trustpilot, GMB & TripAdvisor. ⭐ 4.9/5 rating · 500+ Local Guides. 🎁 5 free reviews!",
   alternates: {
     canonical: "https://buyreviewsinnigeria.com/platforms/",
   },

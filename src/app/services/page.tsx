@@ -8,9 +8,9 @@ import { InternalLinks } from "@/components/sections";
 import { buildBreadcrumbs } from "@/lib/internal-links";
 
 export const metadata: Metadata = {
-  title: "Our Services | Google Reviews & Reputation Management Nigeria",
+  title: "⭐ Our Services — Google Reviews & Reputation Management",
   description:
-    "Explore our full range of review and reputation services for Nigerian businesses: Google Review Collection, Trustpilot Reviews, GMB Optimization, Reputation Management, Negative Review Removal, and Local SEO.",
+    "Full range of review & reputation services for Nigerian businesses. ✅ Google Reviews · Trustpilot · GMB Optimization · Local SEO. 🎁 5 free reviews with first order!",
   alternates: {
     canonical: "https://buyreviewsinnigeria.com/services/",
   },

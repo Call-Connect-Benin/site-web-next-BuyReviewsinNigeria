@@ -6,9 +6,9 @@ import { Breadcrumb } from "@/components/layout/breadcrumb";
 import { buildBreadcrumbs } from "@/lib/internal-links";
 
 export const metadata: Metadata = {
-  title: "Blog | Google Reviews & Local SEO Tips Nigeria",
+  title: "📝 Blog — Google Reviews & Local SEO Tips for Nigeria",
   description:
-    "Expert guides on Google reviews, Trustpilot, GMB optimization, local SEO, and reputation management for Nigerian businesses. Coming soon.",
+    "Expert guides on Google Reviews, Trustpilot, GMB optimization & local SEO for Nigerian businesses. 💡 Tips to boost your online reputation. Coming soon!",
   alternates: {
     canonical: "https://buyreviewsinnigeria.com/blog/",
   },

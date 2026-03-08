@@ -14,9 +14,9 @@ import {
 } from "@/components/icons";
 
 export const metadata: Metadata = {
-  title: "About Us",
+  title: "🇳🇬 About Us — Nigeria's #1 Google Review Platform",
   description:
-    "Learn about BuyReviewsInNigeria.com — Nigeria's leading platform for authentic Google Reviews from certified Local Guides across 15 cities.",
+    "BuyReviewsInNigeria.com — Nigeria's leading platform for authentic Google Reviews. ⭐ 500+ certified Local Guides · 15 cities · 1,000+ happy businesses.",
   alternates: { canonical: "https://buyreviewsinnigeria.com/about/" },
 };
 

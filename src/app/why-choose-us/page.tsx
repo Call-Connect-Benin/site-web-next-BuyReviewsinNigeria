@@ -15,9 +15,9 @@ import {
 import { getColorForIndex } from "@/lib/colors";
 
 export const metadata: Metadata = {
-  title: "Why Choose Us",
+  title: "🏆 Why Choose Us — 8 Reasons Businesses Trust Us",
   description:
-    "8 reasons Nigerian businesses choose BuyReviewsInNigeria for authentic Google Reviews. Certified Local Guides, 30-day guarantee, 15 cities.",
+    "⭐ 4.9/5 from 650+ clients! 8 reasons Nigerian businesses choose BuyReviewsInNigeria. ✅ Certified Local Guides · 30-day guarantee · 15 cities covered.",
   alternates: { canonical: "https://buyreviewsinnigeria.com/why-choose-us/" },
 };
 
