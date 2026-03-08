@@ -97,6 +97,7 @@ const errorInputStyles = "border-google-red focus:ring-google-red/40 focus:borde
 
 export function GetStartedForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const {
     register,
@@ -107,13 +108,30 @@ export function GetStartedForm() {
   });
 
   const onSubmit = async (data: GetStartedFormData) => {
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ formType: "get-started", ...data }),
-    });
-    if (!res.ok) throw new Error("Failed to send");
-    setIsSubmitted(true);
+    setSubmitError(null);
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 15_000);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ formType: "get-started", ...data }),
+        signal: controller.signal,
+      });
+      clearTimeout(timeout);
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        throw new Error(body.error || `Server error (${res.status})`);
+      }
+      setIsSubmitted(true);
+    } catch (err) {
+      clearTimeout(timeout);
+      if (err instanceof DOMException && err.name === "AbortError") {
+        setSubmitError("Request timed out. Please try again.");
+      } else {
+        setSubmitError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+      }
+    }
   };
 
   if (isSubmitted) {
@@ -140,6 +158,12 @@ export function GetStartedForm() {
         className="space-y-5"
         noValidate
       >
+        {submitError && (
+          <div className="rounded-[var(--radius-sm)] border border-google-red/30 bg-google-red/5 px-4 py-3 text-sm text-google-red">
+            {submitError}
+          </div>
+        )}
+
         <div className="grid gap-5 sm:grid-cols-2">
           <FormField
             label="Business Name"

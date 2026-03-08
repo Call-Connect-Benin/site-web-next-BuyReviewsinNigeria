@@ -42,6 +42,7 @@ const errorInputStyles = "border-google-red focus:ring-google-red/40 focus:borde
 
 export function ContactForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const {
     register,
@@ -52,13 +53,30 @@ export function ContactForm() {
   });
 
   const onSubmit = async (data: ContactFormData) => {
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ formType: "contact", ...data }),
-    });
-    if (!res.ok) throw new Error("Failed to send");
-    setIsSubmitted(true);
+    setSubmitError(null);
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 15_000);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ formType: "contact", ...data }),
+        signal: controller.signal,
+      });
+      clearTimeout(timeout);
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        throw new Error(body.error || `Server error (${res.status})`);
+      }
+      setIsSubmitted(true);
+    } catch (err) {
+      clearTimeout(timeout);
+      if (err instanceof DOMException && err.name === "AbortError") {
+        setSubmitError("Request timed out. Please try again.");
+      } else {
+        setSubmitError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+      }
+    }
   };
 
   if (isSubmitted) {
@@ -79,6 +97,12 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
+      {submitError && (
+        <div className="rounded-[var(--radius-sm)] border border-google-red/30 bg-google-red/5 px-4 py-3 text-sm text-google-red">
+          {submitError}
+        </div>
+      )}
+
       <div className="grid gap-5 sm:grid-cols-2">
         <FormField label="Full Name" error={errors.name?.message} required>
           <input

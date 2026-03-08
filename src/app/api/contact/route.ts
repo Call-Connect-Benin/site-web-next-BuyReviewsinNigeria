@@ -2,16 +2,22 @@ import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
 const TO_EMAIL = "contact@buyreviews.africa";
+const SMTP_TIMEOUT = 10_000; // 10 seconds
 
-const transporter = nodemailer.createTransport({
-  host: "mail.infomaniak.com",
-  port: 587,
-  secure: false,
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  },
-});
+function getTransporter() {
+  return nodemailer.createTransport({
+    host: "mail.infomaniak.com",
+    port: 587,
+    secure: false,
+    auth: {
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS,
+    },
+    connectionTimeout: SMTP_TIMEOUT,
+    greetingTimeout: SMTP_TIMEOUT,
+    socketTimeout: SMTP_TIMEOUT,
+  });
+}
 
 function escapeHtml(str: string): string {
   return str
@@ -33,12 +39,22 @@ function buildHtmlRows(fields: Record<string, string | undefined>): string {
 
 export async function POST(req: NextRequest) {
   try {
+    if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
+      console.error("SMTP credentials missing: SMTP_USER or SMTP_PASS not set");
+      return NextResponse.json(
+        { error: "Email service not configured" },
+        { status: 500 }
+      );
+    }
+
     const body = await req.json();
     const { formType, ...data } = body as { formType: string; [key: string]: string };
 
     if (!formType) {
       return NextResponse.json({ error: "Missing formType" }, { status: 400 });
     }
+
+    console.log(`[contact-api] Received ${formType} submission`);
 
     const subjectMap: Record<string, string> = {
       contact: `New Contact Message — ${data.subject ?? "General"}`,
@@ -59,6 +75,8 @@ export async function POST(req: NextRequest) {
       <p style="color:#888;font-size:12px">Sent from buyreviews.africa</p>
     `;
 
+    const transporter = getTransporter();
+
     await transporter.sendMail({
       from: `"BuyReviews Africa" <${process.env.SMTP_USER}>`,
       to: TO_EMAIL,
@@ -67,11 +85,13 @@ export async function POST(req: NextRequest) {
       replyTo: data.email || undefined,
     });
 
+    console.log(`[contact-api] Email sent successfully for ${formType}`);
     return NextResponse.json({ ok: true });
   } catch (error) {
-    console.error("Email send error:", error);
+    const message = error instanceof Error ? error.message : "Unknown error";
+    console.error(`[contact-api] Email send error: ${message}`, error);
     return NextResponse.json(
-      { error: "Failed to send message" },
+      { error: `Failed to send message: ${message}` },
       { status: 500 }
     );
   }
