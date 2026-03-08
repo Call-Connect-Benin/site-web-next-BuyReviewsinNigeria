@@ -25,7 +25,7 @@ export function Footer() {
               >
                 {contactInfo.company}
               </a>
-              , a digital marketing agency with offices in France and Canada.
+              , a Google Partner web agency with offices in Canada, USA, France, Switzerland, Benin, and Nigeria.
             </p>
             <div className="mt-4 space-y-2">
               <a
@@ -49,7 +49,7 @@ export function Footer() {
                 className="flex items-center gap-2 text-sm text-text-secondary hover:text-google-blue"
               >
                 <Globe className="h-4 w-4" />
-                lannkin.com
+                lannkin.ca
               </a>
               <div className="flex items-start gap-2 text-sm text-text-secondary">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0" />

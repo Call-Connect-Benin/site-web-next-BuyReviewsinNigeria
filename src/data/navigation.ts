@@ -396,7 +396,7 @@ export const contactInfo = {
   company: "LANNKIN S.A.",
   neq: "1179695284",
   companyAddress: "306-1555 boul. de l'Avenir, Laval (Québec) H7S2N5, Canada",
-  website: "https://lannkin.com",
+  website: "https://lannkin.ca",
 } as const;
 
 // ── Helper Functions ──
