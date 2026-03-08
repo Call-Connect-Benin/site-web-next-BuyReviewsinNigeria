@@ -31,9 +31,13 @@ export function LeadCaptureForm() {
     resolver: zodResolver(leadCaptureSchema),
   });
 
-  const onSubmit = async (_data: LeadCaptureFormData) => {
-    // TODO: Send to API endpoint
-    await new Promise((resolve) => setTimeout(resolve, 800));
+  const onSubmit = async (data: LeadCaptureFormData) => {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ formType: "lead-capture", ...data }),
+    });
+    if (!res.ok) throw new Error("Failed to send");
     setIsSubmitted(true);
   };
 

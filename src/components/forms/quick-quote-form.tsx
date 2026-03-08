@@ -82,9 +82,13 @@ export function QuickQuoteForm() {
   const estimatedPrice = getEstimatedPrice(currentCount);
   const priceDescription = getPriceDescription(currentCount);
 
-  const onSubmit = async (_data: QuickQuoteFormData) => {
-    // TODO: Send to API endpoint
-    await new Promise((resolve) => setTimeout(resolve, 800));
+  const onSubmit = async (data: QuickQuoteFormData) => {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ formType: "quick-quote", ...data, reviewCount: String(data.reviewCount) }),
+    });
+    if (!res.ok) throw new Error("Failed to send");
     setIsSubmitted(true);
   };
 

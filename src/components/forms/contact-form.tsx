@@ -51,9 +51,13 @@ export function ContactForm() {
     resolver: zodResolver(contactSchema),
   });
 
-  const onSubmit = async (_data: ContactFormData) => {
-    // TODO: Send to API endpoint
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+  const onSubmit = async (data: ContactFormData) => {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ formType: "contact", ...data }),
+    });
+    if (!res.ok) throw new Error("Failed to send");
     setIsSubmitted(true);
   };
 

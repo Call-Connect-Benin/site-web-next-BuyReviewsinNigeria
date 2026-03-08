@@ -106,9 +106,13 @@ export function GetStartedForm() {
     resolver: zodResolver(getStartedSchema),
   });
 
-  const onSubmit = async (_data: GetStartedFormData) => {
-    // TODO: Send to API endpoint
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+  const onSubmit = async (data: GetStartedFormData) => {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ formType: "get-started", ...data }),
+    });
+    if (!res.ok) throw new Error("Failed to send");
     setIsSubmitted(true);
   };
 
