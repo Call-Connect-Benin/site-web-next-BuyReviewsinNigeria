@@ -13,6 +13,7 @@ import { Breadcrumb } from "@/components/layout/breadcrumb";
 import { InternalLinks } from "@/components/sections";
 import { iconMap, ArrowRight, CheckCircle, Shield, MapPin } from "@/components/icons";
 import { FaqAccordion } from "@/components/ui/faq-accordion";
+import { PromoForm } from "@/components/forms/promo-form";
 import { getColorForIndex } from "@/lib/colors";
 
 interface Props {
@@ -487,34 +488,35 @@ export default async function ServicePage({ params }: Props) {
           </section>
         )}
 
-        {/* ── 9. CTA Final ── */}
+        {/* ── 9. CTA Final with PromoForm ── */}
         <section className="relative overflow-hidden bg-google-blue py-20">
           <div className="pointer-events-none absolute inset-0 dot-pattern-white" />
           <div className="pointer-events-none absolute -left-16 bottom-0 h-48 w-48 rounded-full bg-white/5" />
           <div className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-white/5" />
-          <div className="pointer-events-none absolute left-1/3 top-1/4 h-24 w-24 rounded-full bg-white/5" />
-          <div className="relative mx-auto max-w-3xl px-6 text-center">
-            <h2 className="font-heading text-3xl font-bold text-white sm:text-4xl">
-              Ready to Get Started with {service.name}?
-            </h2>
-            <p className="mx-auto mt-4 max-w-xl text-lg text-white/80">
-              Join 1,000+ Nigerian businesses that trust us to deliver authentic
-              reviews and real results. Start seeing improvements in as little as
-              one week.
-            </p>
-            <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Link
-                href="/get-started/"
-                className="inline-flex items-center rounded-lg bg-white px-8 py-4 text-base font-semibold text-google-blue shadow-md transition-all hover:bg-white/90 hover:shadow-lg"
-              >
-                Get Started Now
-              </Link>
-              <Link
-                href="/contact/"
-                className="inline-flex items-center rounded-lg border-2 border-white/30 px-8 py-4 text-base font-semibold text-white transition-all hover:border-white hover:bg-white/10"
-              >
-                Contact Us
-              </Link>
+          <div className="relative mx-auto max-w-5xl px-6">
+            <div className="grid items-center gap-10 lg:grid-cols-2">
+              <div className="text-center lg:text-left">
+                <h2 className="font-heading text-3xl font-bold text-white sm:text-4xl">
+                  Ready to Get Started with {service.name}?
+                </h2>
+                <p className="mt-4 text-lg text-white/80">
+                  Join 1,000+ Nigerian businesses that trust us to deliver authentic
+                  reviews and real results.
+                </p>
+              </div>
+              <div className="mx-auto w-full max-w-md lg:mx-0 lg:ml-auto">
+                <div className="rounded-xl bg-white/95 backdrop-blur-sm ring-1 ring-white/20 p-6 shadow-lg">
+                  <div className="mb-3 inline-block rounded-full bg-google-green/10 px-3 py-1 text-sm font-semibold text-google-green">
+                    Limited Offer
+                  </div>
+                  <h3 className="font-heading text-lg font-bold text-text-primary">
+                    Get 5 Free Google Reviews
+                  </h3>
+                  <div className="mt-4">
+                    <PromoForm />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>

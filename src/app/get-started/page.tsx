@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/layout/breadcrumb";
 import { buildBreadcrumbs } from "@/lib/internal-links";
-import { GetStartedForm } from "@/components/forms";
+import { PromoForm } from "@/components/forms/promo-form";
 import { Shield, CheckCircle, Users, Star } from "@/components/icons";
 import { getColorForIndex } from "@/lib/colors";
 
@@ -112,7 +112,16 @@ export default function GetStartedPage() {
               <div className="glass-dark overflow-hidden rounded-xl shadow-xl">
                 <div className="h-1 bg-gradient-to-r from-google-blue via-google-red to-google-yellow" />
                 <div className="p-8">
-                  <GetStartedForm />
+                  <div className="mb-4 inline-block rounded-full bg-google-green/10 px-3 py-1 text-sm font-semibold text-google-green">
+                    Limited Offer
+                  </div>
+                  <h2 className="mb-1 font-heading text-xl font-bold text-text-primary">
+                    Get 5 Free Google Reviews with Your First Order*
+                  </h2>
+                  <p className="mb-6 text-sm text-text-secondary">
+                    Fill in your details and we will contact you within 24 hours
+                  </p>
+                  <PromoForm />
                 </div>
               </div>
             </div>

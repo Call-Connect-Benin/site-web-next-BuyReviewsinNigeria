@@ -2,7 +2,7 @@
 
 import { ctaFinalData } from "@/data/homepage";
 import { Phone } from "@/components/icons";
-import { LeadCaptureForm } from "@/components/forms/lead-capture-form";
+import { PromoForm } from "@/components/forms/promo-form";
 
 export function CTAFinal() {
   return (
@@ -35,14 +35,17 @@ export function CTAFinal() {
           {/* Right: Inline form */}
           <div className="mx-auto w-full max-w-md lg:mx-0 lg:ml-auto">
             <div className="rounded-xl bg-white/95 backdrop-blur-sm ring-1 ring-white/20 p-6 shadow-lg">
+              <div className="mb-3 inline-block rounded-full bg-google-green/10 px-3 py-1 text-sm font-semibold text-google-green">
+                Limited Offer
+              </div>
               <h3 className="font-heading text-lg font-bold text-text-primary">
-                Start Growing Today
+                Get 5 Free Google Reviews
               </h3>
               <p className="mt-1 text-sm text-text-secondary">
-                Get a free quote in minutes
+                Claim your free reviews with your first order
               </p>
               <div className="mt-4">
-                <LeadCaptureForm />
+                <PromoForm />
               </div>
             </div>
           </div>

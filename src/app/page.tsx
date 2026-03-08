@@ -118,6 +118,7 @@ export default function HomePage() {
       />
       <main>
         <Hero />
+        <PricingPreview />
 
         {/* Loom Presentation Video */}
         <section className="bg-bg py-12 sm:py-16">
@@ -144,7 +145,6 @@ export default function HomePage() {
         <LocationsSection />
         <TestimonialsSection />
         <WhyReviewsMatter />
-        <PricingPreview />
         <FAQSection />
         <CTAFinal />
       </main>

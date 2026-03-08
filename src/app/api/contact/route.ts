@@ -57,6 +57,7 @@ export async function POST(req: NextRequest) {
     console.log(`[contact-api] Received ${formType} submission`);
 
     const subjectMap: Record<string, string> = {
+      promo: `New Promo Lead (5 Free Reviews) — ${data.name ?? ""}`,
       contact: `New Contact Message — ${data.subject ?? "General"}`,
       "quick-quote": `New Quick Quote — ${data.businessName ?? ""}`,
       "get-started": `New Get Started Request — ${data.businessName ?? ""}`,
@@ -65,6 +66,9 @@ export async function POST(req: NextRequest) {
 
     const subject = subjectMap[formType] ?? `New Form Submission — ${formType}`;
 
+    const pageUrl = data.pageUrl;
+    delete data.pageUrl;
+
     const rows = buildHtmlRows(data);
     const html = `
       <h2 style="color:#1a73e8">${escapeHtml(subject)}</h2>
@@ -72,6 +76,7 @@ export async function POST(req: NextRequest) {
         ${rows}
       </table>
       <hr/>
+      ${pageUrl ? `<p style="color:#666;font-size:12px"><strong>Page:</strong> <a href="${escapeHtml(pageUrl)}">${escapeHtml(pageUrl)}</a></p>` : ""}
       <p style="color:#888;font-size:12px">Sent from buyreviews.africa</p>
     `;
 

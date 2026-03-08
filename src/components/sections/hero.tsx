@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { heroData } from "@/data/homepage";
 import { iconMap } from "@/components/icons";
 import Image from "next/image";
-import { QuickQuoteForm } from "@/components/forms/quick-quote-form";
+import { PromoForm } from "@/components/forms/promo-form";
 import { getColorForIndex } from "@/lib/colors";
 
 export function Hero() {
@@ -119,14 +119,17 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <div className="glass-dark rounded-2xl p-6 shadow-xl ring-1 ring-white/50 sm:p-8">
+              <div className="mb-4 inline-block rounded-full bg-google-green/10 px-3 py-1 text-sm font-semibold text-google-green">
+                Limited Offer
+              </div>
               <h2 className="font-heading text-xl font-bold text-text-primary">
-                Get Your Free Quote
+                Get 5 Free Google Reviews with Your First Order*
               </h2>
               <p className="mt-1 text-sm text-text-secondary">
-                Instant price estimate for your business
+                Fill in your details and we will contact you within 24 hours
               </p>
-              <div className="mt-6">
-                <QuickQuoteForm />
+              <div className="mt-5">
+                <PromoForm />
               </div>
             </div>
           </motion.div>

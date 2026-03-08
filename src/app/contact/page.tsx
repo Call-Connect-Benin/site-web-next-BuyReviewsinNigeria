@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/layout/breadcrumb";
 import { buildBreadcrumbs } from "@/lib/internal-links";
-import { ContactForm } from "@/components/forms";
+import { PromoForm } from "@/components/forms/promo-form";
 import { Phone, Mail, MapPin, Globe } from "@/components/icons";
 import { contactInfo } from "@/data/navigation";
 
@@ -91,11 +91,14 @@ export default function ContactPage() {
               <div className="glass-dark shadow-xl rounded-xl overflow-hidden">
                 <div className="h-1 rounded-t-xl bg-gradient-to-r from-google-blue via-google-red to-google-green" />
                 <div className="p-8">
+                  <div className="mb-4 inline-block rounded-full bg-google-green/10 px-3 py-1 text-sm font-semibold text-google-green">
+                    Limited Offer
+                  </div>
                   <h2 className="font-heading text-xl font-semibold text-text-primary">
-                    Send Us a Message
+                    Get 5 Free Google Reviews with Your First Order*
                   </h2>
                   <div className="mt-6">
-                    <ContactForm />
+                    <PromoForm />
                   </div>
                 </div>
               </div>

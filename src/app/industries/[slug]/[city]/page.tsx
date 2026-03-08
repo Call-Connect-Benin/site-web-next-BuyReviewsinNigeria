@@ -21,6 +21,7 @@ import {
   MapPin,
 } from "@/components/icons";
 import { StarRating, FaqAccordion } from "@/components/ui";
+import { PromoForm } from "@/components/forms/promo-form";
 
 interface Props {
   params: Promise<{ slug: string; city: string }>;
@@ -437,27 +438,33 @@ export default async function IndustryCityPage({ params }: Props) {
 
       {/* CTA */}
       <section className="bg-google-blue py-20">
-        <div className="mx-auto max-w-3xl px-6 text-center">
-          <h2 className="font-heading text-3xl font-bold text-white">
-            Grow Your {industry.name} Business in {city.name}
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-lg text-white/80">
-            Join {industry.name.toLowerCase()} businesses in {city.name} that trust our
-            certified Local Guides to deliver authentic Google reviews. Get started today.
-          </p>
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link
-              href="/get-started/"
-              className="inline-flex items-center rounded-lg bg-white px-8 py-4 text-base font-semibold text-google-blue shadow-md transition-all hover:bg-white/90 hover:shadow-lg"
-            >
-              Get Started Now
-            </Link>
-            <Link
-              href="/contact/"
-              className="inline-flex items-center rounded-lg border-2 border-white/30 px-8 py-4 text-base font-semibold text-white transition-all hover:border-white hover:bg-white/10"
-            >
-              Contact Us
-            </Link>
+        <div className="mx-auto max-w-5xl px-6">
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+            <div className="text-center lg:text-left">
+              <h2 className="font-heading text-3xl font-bold text-white">
+                Grow Your {industry.name} Business in {city.name}
+              </h2>
+              <p className="mx-auto mt-4 max-w-xl text-lg text-white/80 lg:mx-0">
+                Join {industry.name.toLowerCase()} businesses in {city.name} that trust our
+                certified Local Guides to deliver authentic Google reviews. Get started today.
+              </p>
+            </div>
+            <div className="mx-auto w-full max-w-md lg:mx-0">
+              <div className="rounded-2xl bg-white p-6 shadow-xl sm:p-8">
+                <div className="mb-4 inline-block rounded-full bg-google-green/10 px-3 py-1 text-sm font-semibold text-google-green">
+                  Limited Offer
+                </div>
+                <h3 className="font-heading text-xl font-bold text-text-primary">
+                  Get 5 Free Google Reviews with Your First Order*
+                </h3>
+                <p className="mt-1 text-sm text-text-secondary">
+                  Fill in your details and we will contact you within 24 hours
+                </p>
+                <div className="mt-5">
+                  <PromoForm />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
